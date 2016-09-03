@@ -123,7 +123,19 @@
                     <p align="center">
                     $f(\mathbf{x_i})=\sum_{j=1}^m\beta_j K(\mathbf{x}_i,\mathbf{c}_j)$
                     </p>
-                    
+
+                    <p>
+                    Finally, the weights $\boldsymbol{\beta}$ are obtained solving the following minimization problem:
+                    </p>
+
+                    <p align="center">
+                    $\min_{\boldsymbol{\beta}} \frac{1}{2}\mathbf{\boldsymbol{\beta}^T\mathbf{K}_c\boldsymbol{\beta}}+C\sum_{i=1}^n{\xi_i}$<br>
+                    $(\mathbf{K_c})_{i,j} = K(\mathbf{c}_i,\mathbf{c}_j), i,j=1,...,m$<br>
+                    $y_i(\boldsymbol{\beta}^T\mathbf{k}_i+b)\ge 1-\xi_i, i=1,2,...,n$<br>
+                    $\xi_i \ge 0,i=1,2,...,n$<br>
+                    $(\mathbf{k}_i)_j=K(\mathbf{x}_i,\mathbf{c}_j)$
+                    </p>
+
                     <h4>
                         Sparse Greedy Matrix Aproximaton
                     </h4>
@@ -132,17 +144,7 @@
                     SGMA is a very common greedy technique to select the basis elements of the semi-parametric model. It has been used very successfully in kernel methods. In every iteration selects a group of candidates and it grows the model with the candidate that obtains the highest Error Decrease ($ED$).
                     </p>
                     
-                    <p>
-                    Finally, the weights $\boldsymbol{\beta}$ are obtained solving the following minimization problem:
-                    </p>
-                    
-                    <p>
-                    $\min_{\boldsymbol{\beta}} \frac{1}{2}\mathbf{\boldsymbol{\beta}^T\mathbf{K}_c\boldsymbol{\beta}}+C\sum_{i=1}^n{\xi_i}$<br>
-                    $(\mathbf{K_c})_{i,j} = K(\mathbf{c}_i,\mathbf{c}_j), i,j=1,...,m$<br>
-                    $y_i(\boldsymbol{\beta}^T\mathbf{k}_i+b)\ge 1-\xi_i, i=1,2,...,n$<br>
-                    $\xi_i \ge 0,i=1,2,...,n$<br>
-                    $(\mathbf{k}_i)_j=K(\mathbf{x}_i,\mathbf{c}_j)$
-                    </p>
+
                     <hr>
                 </div>
             </div>
