@@ -119,12 +119,25 @@
                 <hr>
                 
                 <h4>
-                    Download
+                    Install
                 </h4>
                 <h5>
                     Requirements
                 </h5>
+                <p>
+                This software is implemented in C and it requires the following libraries:
                 
+                <ul>
+                    <li>Openmp: To parallelize the software</li>
+                    <li>A linear algebra package that implements BLAS and Lapack standard routines. We have tested two alternatives:
+                        <ul>
+                            <li>BLAS and Lapack</li>
+                            <li>IntelMKL</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                </p>
                 <p>
                 The availability of multi-core processors has motivated an increasing interest in research lines about parallelization of machine learning algorithms. Kernel methods such as Support Vector Machines (SVMs), in spite of their efficacy solving problems of classification, have a very high computational cost and usually produce very large models.
                 </p>
