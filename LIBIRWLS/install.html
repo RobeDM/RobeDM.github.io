@@ -345,13 +345,20 @@
                 ./PIRWLS-predict [options] dataset_file model_file output_file
                 Options:
                 
-                -t Number_of_Threads: It is the number of threads in the parallel task (default 1)
-                -s Soft output (default 0):
-                0 Class prediction (the output is +1 or -1)
-                1 Soft output: The output after the hard decision that decides the class (useful to use in ensembles with other algorithms).
-                -l Labeled: (default 0)
-                1 if the dataset is labeled (shows accuracy)
-                0 if the dataset is unlabeled
+                <ul>
+                <li>-t Number_of_Threads: It is the number of threads in the parallel task (default 1)</li>
+                <li>-s Soft output (default 0):</li>
+                <ul>
+                <li>0 Class prediction (the output is +1 or -1)</li>
+                <li>1 Soft output: The output after the hard decision that decides the class (useful to use in ensembles with other algorithms).</li>
+                </ul>
+                <li>-l Labeled: (default 0)</li>
+                <ul>
+                <li>1 if the dataset is labeled (shows accuracy)</li>
+                <li>0 if the dataset is unlabeled</li>
+                </ul>
+                </ul>
+                
                 Example:
                 
                 <div class="shell-wrap">
