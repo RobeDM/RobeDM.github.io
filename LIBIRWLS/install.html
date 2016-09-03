@@ -340,9 +340,17 @@
                 </h5>
                 
                 <p>
-                To make predictions with the model in a different dataset:
+                
+                Command line:<br><br>
                 
                 ./PIRWLS-predict [options] dataset_file model_file output_file
+                
+                <ul>
+                    <li>dataset_file: Dataset set in LibSVM format (labeled or unlabeled)</li>
+                    <li>model_file: File that contains a classifier trained with PIRWLS or PSIRWLS</li>
+                    <li>output_file: File to save the predictions</li>
+                </ul>
+
                 Options:
                 
                 <ul>
