@@ -156,11 +156,11 @@
                 $\min_{\boldsymbol{\beta},b}  \frac{1}{2}\Vert\mathbf{w}\Vert^2+\sum_{i}a_{i}e_i^2$<br>
                 $\sum_{j=1}^nw_i=0$<br>
                 $e_i=y_i-\left(\sum_{j=1}^nw_jK(\mathbf{x}_i,\mathbf{x}_j)+b\right)$<br>
-                $a_i=\begin{cases}0,y_ie_i \le 0\\\frac{C}{e_iy_i},y_ie_i \ge 0\label{vara}\end{cases}
+                $a_i=\begin{cases}0,y_ie_i \le 0\\\frac{C}{e_iy_i},y_ie_i \ge 0\label{vara}\end{cases}$
                 </p>
                 
                 <p>
-                The weights are then obtained (the convergence of this procedure is proved in \cite{IRWLS2}) by minimizing (\ref{MINIR}) considering that $a_i$ does not depend on $\mathbf{w}$, then recalculating $a_i$ using the new $\mathbf{w}$ and repeating the procedure until convergence.
+                The weights are then obtained by minimizing the equation considering that $a_i$ does not depend on $\mathbf{w}$, then recalculating $a_i$ using the new $\mathbf{w}$ and repeating the procedure until convergence.
                 </p>
 
                 <p>
