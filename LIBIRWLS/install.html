@@ -324,11 +324,22 @@
                 <li>-t Number_of_Threads: It is the number of threads in the parallel task (default 1)</li>
                 <li>-e eta: Stop criteria (default 0.001)</li>
                 </ul>
+                
                 Example:
                 
-                ./PIRWLS-train -g 0.001 -c 1000 -t 4 training_set_file.txt model_file.mod
-                Test:
+                <div class="shell-wrap">
+                    <p class="shell-top-bar">/Users/robedm/</p>
+                    <ul class="shell-body">
+                        <li>./bin/PIRWLS-train -g 0.001 -c 1000 -t 4 training.txt model.mod</li>
+                    </ul>
+                </div>
+                </p>
                 
+                <h5>
+                Using a trained model to classify a new dataset:
+                </h5>
+                
+                <p>
                 To make predictions with the model in a different dataset:
                 
                 ./PIRWLS-predict [options] dataset_file model_file output_file
