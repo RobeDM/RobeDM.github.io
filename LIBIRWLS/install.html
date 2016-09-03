@@ -101,29 +101,10 @@
                 </h1>
                 
                 <hr>
-
-                <h4>
-                    Download
-                </h4>
-                
-                <p>
-                You can download LIBIRWLS from the Github repository hosting service using the git command line:
-                <div class="shell-wrap">
-                    <p class="shell-top-bar">/Users/robedm/</p>
-                    <ul class="shell-body">
-                        <li>git clone git://github.com/RobeDM/LIBIRWLS.git</li>
-                    </ul>
-                </div>
-                </p>
-                
-                <hr>
                 
                 <h4>
-                    Install
-                </h4>
-                <h5>
                     Dependencies
-                </h5>
+                </h4>
                 <p>
                 This software is implemented in C and it requires the following libraries:
                 
@@ -186,7 +167,58 @@
                 LAPACK can be found here:<a href="http://www.netlib.org/lapack/">http://www.netlib.org/lapack/</a>
                 </p>
                 
+                <hr>
                 
+                <h4>
+                    Download
+                </h4>
+                
+                <p>
+                You can download LIBIRWLS from the Github repository hosting service using the git command line:
+                <div class="shell-wrap">
+                    <p class="shell-top-bar">/Users/robedm/</p>
+                    <ul class="shell-body">
+                        <li>git clone git://github.com/RobeDM/LIBIRWLS.git</li>
+                    </ul>
+                </div>
+                </p>
+                
+                <hr>
+ 
+                <h4>
+                    Compiling
+                </h4>
+                
+                <p>After downloading the code from github, access the application folder and build the software using the make command</p>
+
+                <h5>
+                    If you use blas and lapack:
+                </h5>
+                <div class="shell-wrap">
+                    <p class="shell-top-bar">/Users/robedm/</p>
+                    <ul class="shell-body">
+                        <li>cd LIBIRWLS</li>
+                        <li>make</li>
+                    </ul>
+                </div>
+                <h5>
+                    If you use MKL:
+                </h5>
+                <div class="shell-wrap">
+                    <p class="shell-top-bar">/Users/robedm/</p>
+                    <ul class="shell-body">
+                        <li>cd LIBIRWLS</li>
+                        <li>make USE_MKL=1</li>
+                    </ul>
+                </div>
+
+                If the libraries are not installed in the standard paths you can edit the file Makefile and uncomment and edit the following variables:
+
+                INCLUDEPATH to tell the are the header files .h
+
+                LIBRARYPATH to tell the linear algebra libraries location.
+
+
                 Intel MKL :
                 
                 We have also tested this software using the Intel MKL library. Due to the fact that it is not open source software we don't provide here the intallation instructions.
