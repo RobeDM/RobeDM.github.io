@@ -120,7 +120,7 @@
                     The solution of the SVM (see PIRWLS section) is non-parametric, the size of the classification function (that is the number of Support Vectors) is not predetermined and is modeled based on the training samples. To keep the complexity under control a semi-parametric models can be adopted. A set of m basis elements $\{\mathbf{c}_1,...,\mathbf{c}_m\}$ can be selected and $\mathbf{w}$ (see PIRWLS section) is approximated by $\mathbf{w}\simeq \sum_{j=1}^m\beta_j\phi(\mathbf{c}_j)$, giving rise to a classifier of size $m$:
                     </p>
                     
-                    <p>
+                    <p align="center">
                     $f(\mathbf{x_i})=\sum_{j=1}^m\beta_j K(\mathbf{x}_i,\mathbf{c}_j)$
                     </p>
                     
@@ -137,10 +137,10 @@
                     </p>
                     
                     <p>
-                    $\min_{\boldsymbol{\beta}} frac{1}{2}\mathbf{\boldsymbol{\beta}^T\mathbf{K}_c\boldsymbol{\beta}}+C\sum_{i=1}^n{\xi_i}$
-                    $(\mathbf{K_c})_{i,j} = K(\mathbf{c}_i,\mathbf{c}_j), i,j=1,...,m$
-                    $y_i(\boldsymbol{\beta}^T\mathbf{k}_i+b)\ge 1-\xi_i, i=1,2,...,n$
-                    $\xi_i \ge 0,i=1,2,...,n$
+                    $\min_{\boldsymbol{\beta}} \frac{1}{2}\mathbf{\boldsymbol{\beta}^T\mathbf{K}_c\boldsymbol{\beta}}+C\sum_{i=1}^n{\xi_i}$<br>
+                    $(\mathbf{K_c})_{i,j} = K(\mathbf{c}_i,\mathbf{c}_j), i,j=1,...,m$<br>
+                    $y_i(\boldsymbol{\beta}^T\mathbf{k}_i+b)\ge 1-\xi_i, i=1,2,...,n$<br>
+                    $\xi_i \ge 0,i=1,2,...,n$<br>
                     $(\mathbf{k}_i)_j=K(\mathbf{x}_i,\mathbf{c}_j)$
                     </p>
                     <hr>
