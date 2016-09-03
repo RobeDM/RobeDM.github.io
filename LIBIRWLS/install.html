@@ -141,17 +141,36 @@
                 Dependencies on Ubuntu, Debian, Slackware and other linux distributions using the Advanced Package Tools
                 </h5>
                 
+                <p>
                 The Advanced Package Tool, or APT, is a free software user interface that works with core libraries to handle the installation and removal of software on some Linux distributions.
-                
-                You can install the external libraries using the apt-get command:
-                
+                </p>
+                <p>
                 OPENMP is currently included with the gcc compiler, if gcc is not installed, use the following command line:
+                </p>
                 
-                sudo apt-get install build-essential
+                <div class="shell-wrap">
+                    <p class="shell-top-bar">/Users/robedm/</p>
+                    <ul class="shell-body">
+                        <li>sudo apt-get install build-essential</li>
+                    </ul>
+                </div>
+                
+                <p>
                 To install the linear algebra routines use the following command line:
+                </p>
+
+                <div class="shell-wrap">
+                    <p class="shell-top-bar">/Users/robedm/</p>
+                    <ul class="shell-body">
+                    <li>sudo apt-get install liblapack-dev</li>
+                    <li> sudo apt-get install libblas-dev</li>
+                    </ul>
+                </div>
+
+                <p>
+                We have also tested this software using the Intel MKL library instead of blas and lapack. Due to the fact that it is not open source software we don't provide here the intallation instructions.
+                </p>
                 
-                sudo apt-get install liblapack-dev
-                sudo apt-get install libblas-dev
                 Unix operating systems (OS X or any linux distribution) :
                 
                 You need to download from their official webpages and install them following their instructions.
