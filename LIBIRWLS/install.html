@@ -122,7 +122,7 @@
                     Install
                 </h4>
                 <h5>
-                    Requirements
+                    Dependencies
                 </h5>
                 <p>
                 This software is implemented in C and it requires the following libraries:
@@ -137,6 +137,32 @@
                     </li>
                 </ul>
                 
+                <h5>
+                Dependencies on Ubuntu, Debian, Slackware and other linux distributions using the Advanced Package Tools
+                </h5>
+                
+                The Advanced Package Tool, or APT, is a free software user interface that works with core libraries to handle the installation and removal of software on some Linux distributions.
+                
+                You can install the external libraries using the apt-get command:
+                
+                OPENMP is currently included with the gcc compiler, if gcc is not installed, use the following command line:
+                
+                sudo apt-get install build-essential
+                To install the linear algebra routines use the following command line:
+                
+                sudo apt-get install liblapack-dev
+                sudo apt-get install libblas-dev
+                Unix operating systems (OS X or any linux distribution) :
+                
+                You need to download from their official webpages and install them following their instructions.
+                
+                BLAS
+                
+                LAPACK
+                
+                Intel MKL :
+                
+                We have also tested this software using the Intel MKL library. Due to the fact that it is not open source software we don't provide here the intallation instructions.
                 </p>
                 <p>
                 The availability of multi-core processors has motivated an increasing interest in research lines about parallelization of machine learning algorithms. Kernel methods such as Support Vector Machines (SVMs), in spite of their efficacy solving problems of classification, have a very high computational cost and usually produce very large models.
