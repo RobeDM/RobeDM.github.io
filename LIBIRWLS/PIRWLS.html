@@ -118,7 +118,7 @@
                 <p>
                 Suppose a binary classification problem with a data set $\mathcal{D}$ that contains $n$ training examples in a $p$-dimensional space of the form:
                 </p>
-                <p>
+                <p align="center">
                 $\mathcal{D}=\{(\mathbf{x}_i,y_i)|\mathbf{x}_i \in \mathbb{R}^p,y_i \in \{-1,1\}\}_{i=1}^{n}$
                 </p>
                 
@@ -126,8 +126,8 @@
                 
                 <p>The primal optimization problem to solve a SVM when we use soft margin classification \cite{SOFT} to allow samples inside the classification margin and using a kernel functions \cite{VAPNIK} is:</p>
                 
-                <p>
-                $\min_{\mathbf{w},b} frac{1}{2}\Vert\mathbf{w}\Vert^2+C\sum_{i=1}^n{\xi_i}$<br>
+                <p align="center">
+                $\min_{\mathbf{w},b} \frac{1}{2}\Vert\mathbf{w}\Vert^2+C\sum_{i=1}^n{\xi_i}$<br>
                 Subject to: $y_i(\sum_{j=1}^n\mathbf{w}_jK(\mathbf{x}_j\mathbf{x}_i)+b)\ge 1-\xi_i,\forall i=1,2,...,n$<br>
                 $\xi_i \ge 0,\forall i=1,2,...,n$
                 </p>
