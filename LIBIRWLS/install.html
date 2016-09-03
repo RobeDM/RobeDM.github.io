@@ -271,7 +271,8 @@
                 <li>training_set_file: Training set in LibSVM format</li>
                 <li>model_file: File where the classifier will be stored</li>
                 </ul>
-                
+                <br>
+                Options:
                 <ul>
                 <li>-k kernel type:
                     <ul>
@@ -293,9 +294,7 @@
                 </ul>
                 </div>
  
- 
                 </p>
-                
                 
                 <h5>
                 Running a parallel SVM using the IRWLS procedure:
@@ -304,21 +303,27 @@
                  <p>
                 Command line:<br><br>
                 
+                ./PIRWLS-train [options] training_set_file model_file<br>
                 
+                <ul>
+                <li>training_set_file: Training set in LibSVM format</li>
+                <li>model_file: File where the classifier will be stored</li>
+                </ul>
                 
-                ./PIRWLS-train [options] training_set_file model_file
-                training_set_file: Training set in LibSVM format model_file: File where the classifier will be stored
-                
-                Options:
-                
-                -k kernel type:
-                0 for Linear kernel u'*v
-                1 for radial basis function exp(-gamma*|u-v|^2) (default 1)
-                -g Gamma: Set gamma in the radial basis kernel function (default 1)
-                -c Cost: Set the SVM Cost (default 1)
-                -w Working_set_size: Size of the Least Squares Problem in every iteration (default 500)
-                -t Number_of_Threads: It is the number of threads in the parallel task (default 1)
-                -e eta: Stop criteria (default 0.001)
+                Options:<br>
+                <ul>
+                <li>-k kernel type:
+                    <ul>
+                    <li>0 for Linear kernel u'*v</li>
+                    <li>1 for radial basis function exp(-gamma*|u-v|^2) (default 1)</li>
+                    </ul>
+                </li>
+                <li>-g Gamma: Set gamma in the radial basis kernel function (default 1)</li>
+                <li>-c Cost: Set the SVM Cost (default 1)</li>
+                <li>-w Working_set_size: Size of the Least Squares Problem in every iteration (default 500)</li>
+                <li>-t Number_of_Threads: It is the number of threads in the parallel task (default 1)</li>
+                <li>-e eta: Stop criteria (default 0.001)</li>
+                </ul>
                 Example:
                 
                 ./PIRWLS-train -g 0.001 -c 1000 -t 4 training_set_file.txt model_file.mod
