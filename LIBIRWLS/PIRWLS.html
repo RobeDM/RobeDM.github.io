@@ -113,7 +113,7 @@
                 <hr>
                 
                 <h4>
-                    Support Vector MAchines
+                    Support Vector Machines
                 </h4>
                 <p>
                 Suppose a binary classification problem with a data set $\mathcal{D}$ that contains $n$ training examples in a $p$-dimensional space of the form:
@@ -132,12 +132,16 @@
                 $\xi_i \ge 0,\forall i=1,2,...,n$
                 </p>
                 
+                <p>
                 Where $C$ is a penalty parameter to tradeoff the misclassification error and $K(\mathbf{x}_j\mathbf{x}_i)$ is the kernel function to create non-linear solutions. If the kernel is a radial basis function, also called Gaussian kernel $K(\mathbf{x}_i,\mathbf{x}_j)=exp(-\gamma\Vert \mathbf{x}_i - \mathbf{x}_j \Vert^2)$, the corresponding feature space is a Hilbert space of infinite dimensions.
+                </p>
                 
+                <p>
                 This optimization problem is equivalent to solving an $n$-dimensional convex Quadratic Programming (QP) problem.
-                
-                The solution is non-parametric, the size of the classification function (that is the number of Support Vectors) is not predetermined and is modeled based on the training samples. To keep the complexity under control a semi-parametric models can be adopted.
-                
+                </p>
+                <p>
+                The solution is non-parametric, the size of the classification function (that is the number of Support Vectors) is not predetermined and is modeled based on the training samples. To keep the complexity under control a semi-parametric models can be adopted (see algorithm PSIRWLS).
+                </p>
                 
             <hr>
             </div>
