@@ -141,10 +141,53 @@
                     </h4>
                     
                     <p>
-                    SGMA is a very common greedy technique to select the basis elements of the semi-parametric model. It has been used very successfully in kernel methods. In every iteration selects a group of candidates and it grows the model with the candidate that obtains the highest Error Decrease ($ED$).
+                    SGMA is a very common greedy technique to select the basis elements of the semi-parametric model. It has been used very successfully in kernel methods.
                     </p>
                     
+                    <p>It works by iteratively growing up the set with the element that maximizes a criteria.</p>
+                    
+                    <p>Having a data set $\{\mathbf{x}_1$,...,$\mathbf{x}_n\}$ and a set of basis elements $\{\mathbf{c}_1$,...,$\mathbf{c}_m\}$ we can approximate the kernel functions as a linear combination of other kernels:</p>
+                    
+                    <p align="center">
+                    $k(\mathbf{x}_i,.)=\sum_{j=1}^m\alpha_{i,j}k(\mathbf{c}_j,.)$
+                    </p>
+                    
+                    <p>
+                    The approximation error of this linear combination is:
+                    </p>
+                    
+                    <p align="center">
+                    $Err(\alpha^{n,m})=tr\mathbf{K}-\sum_{i=1}^n\sum_{j=1}^m\alpha_{i,j}k(\mathbf{x}_i,\mathbf{c}_j)$<br>
+                    $(\mathbf{K})_{i,j}=K(\mathbf{x}_i,\mathbf{x}_j), \forall i,j = 1,...,n$
+                    </p>
+                    
+                    <p>
+                    And the approximation error of adding a new element $\mathbf{c}_{m+1}$ to the set of basis can be expresssed as a function of the previous error:
+                    </p>
+                    
+                    <p align="center">
+                    Err(\alpha^{n,m+1})=Err(\alpha^{n,m})-\underbrace{\eta^{-1}\Vert\mathbf{K}_{nm}\mathbf{z}-\mathbf{k}_{m+1,n}\Vert^2}_{Error Decrease}\label{ED}
+                    </p>
+                    
+                    <p>
+                    Where:
+                    </p>
+                    
+                    <p align="center">
+                    $(\mathbf{k}_{m+1,n})_i=k(\mathbf{c}_{m+1},\mathbf{x}_{i}) \forall i=1,...,n$<br>
+                    $(\mathbf{k}_{nc})_i=k(\mathbf{x}_i,\mathbf{c}_{m+1}) \forall i=1,...,m$<br>
+                    $(\mathbf{k}_{mc})_i=k(\mathbf{c}_i,\mathbf{c}_{m+1}) \forall i=1,...,m$<br>
+                    $\mathbf{z}=\mathbf{K_c}^{-1}\mathbf{k}_{mc}$<br>
+                    $\eta=1-\mathbf{z}^T\mathbf{k}_{nc}$<br>
+                    $(\mathbf{K}_{nm})_{ij}=k(\mathbf{x}_i,\mathbf{c}_j) \forall i=1,...,n, j=1,...,m$
+                    </p>
+                    
+                    <p>SGMA aims at looking for the best elements to be used in the semi-parametric model. It has to identify the elements of the training set whose porjections most accurately represent the projected Support Vectors. To do that, in every iteration selects a group of new candidates and grow the set of basis elements with the element with higher Error Decrease (ED)</p>.
 
+                    <h4>
+                        IRWLS to train a semiparametric SVM:
+                    </h4>
+                    
                     <hr>
                 </div>
             </div>
