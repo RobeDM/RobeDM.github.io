@@ -188,6 +188,15 @@
                         IRWLS to train a semiparametric SVM:
                     </h4>
                     
+                    <p>An IRWLS schema has been successfully used to train semi-parametric SVMs by rearranging the cost function:</p>
+ 
+                    <p align="center">
+                    $\min_{\boldsymbol{\beta}}\frac{1}{2}\mathbf{\boldsymbol{\beta}^T\mathbf{K}_c\boldsymbol{\beta}}+\sum_{i}a_{i}e_i^2$<br>
+                    $e_i=y_i-\left(\sum_{j=0}^m\beta_jK(\mathbf{x}_i,\mathbf{c}_j)+b\right)$<br>
+                    $a_i=\begin{cases}0,y_ie_i \le 0\\\frac{C}{e_iy_i},y_ie_i \ge 0\end{cases}$
+                    </p>
+                    
+                    <p>The procedure works in a similarly way to the full SVM, $a_i$ is not a function of $\boldsymbol{\beta}$ and the algorithm works iteratively following a process of obtaining $\boldsymbol{\beta}$ and recalculating $a_i$ using these weights.</p>
                     <hr>
                 </div>
             </div>
