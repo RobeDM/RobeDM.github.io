@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="LIBIRWLS, parallel IRWLS algorithm for SVMs">
+    <meta name="author" content="Roberto Diaz Morales">
+
+    <title>Install LIBIRWLS</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/command.css" rel="stylesheet">
+
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<!-- USED FOR LATEX CODE INSIDE THE HTML -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+                       extensions: ["tex2jax.js"],
+                       jax: ["input/TeX","output/HTML-CSS"],
+                       tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+                       });
+    </script>
+<script type="text/javascript" src="MathJax/MathJax.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">LIBIRWLS</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="install.html">Install</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Algorithms <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="PIRWLS.html">PIRWLS</a>
+                            </li>
+                            <li>
+                                <a href="PSIRWLS.html">PSIRWLS</a>
+                            </li>
+                            <li>
+                                <a href="parallelization.html">Parallelization</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="API/index.html">API</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                    <li><a href="https://github.com/RobeDM/LIBIRWLS" target="blank"><i class="fa fa-github fa-fw fa-lg"></i></a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Header Carousel -->
+
+
+    <!-- Page Content -->
+    <div class="container container-large">
+
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+                
+                <hr>
+
+                <h1>
+                    PIRWLS
+                </h1>
+                
+                <hr>
+                
+                <h4>
+                    Support Vector MAchines
+                </h4>
+                <p>
+                Suppose a binary classification problem with a data set $\mathcal{D}$ that contains $n$ training examples in a $p$-dimensional space of the form:
+                </p>
+                <p>
+                $\mathcal{D}=\{(\mathbf{x}_i,y_i)|\mathbf{x}_i \in \mathbb{R}^p,y_i \in \{-1,1\}\}_{i=1}^{n}$
+                </p>
+            <hr>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; 2014-2016</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+
+</body>
+
+</html>
