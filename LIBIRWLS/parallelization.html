@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        
+        <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <meta name="description" content="LIBIRWLS, parallel IRWLS algorithm for SVMs">
+                        <meta name="author" content="Roberto Diaz Morales">
+                            
+                            <title>Install LIBIRWLS</title>
+                            
+                            <!-- Bootstrap Core CSS -->
+                            <link href="css/bootstrap.min.css" rel="stylesheet">
+                                
+                                <!-- Custom CSS -->
+                                <link href="css/modern-business.css" rel="stylesheet">
+                                    
+                                    <!-- Custom CSS -->
+                                    <link href="css/command.css" rel="stylesheet">
+                                        
+                                        
+                                        <!-- Custom Fonts -->
+                                        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+                                            
+                                            <!-- USED FOR LATEX CODE INSIDE THE HTML -->
+                                            <script type="text/x-mathjax-config">
+                                                MathJax.Hub.Config({
+                                                                   extensions: ["tex2jax.js"],
+                                                                   jax: ["input/TeX","output/HTML-CSS"],
+                                                                   tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+                                                                   });
+                                                </script>
+                                            <script type="text/javascript" src="MathJax/MathJax.js"></script>
+                                            
+                                            <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+                                            <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+                                            <!--[if lt IE 9]>
+                                             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+                                             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+                                             <![endif]-->
+                                            
+                                            </head>
+    
+    <body>
+        
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">LIBIRWLS</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="install.html">Install</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Algorithms <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="PIRWLS.html">PIRWLS</a>
+                                </li>
+                                <li>
+                                    <a href="PSIRWLS.html">PSIRWLS</a>
+                                </li>
+                                <li>
+                                    <a href="parallelization.html">Parallelization</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="API/index.html">API</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact</a>
+                        </li>
+                        <li><a href="https://github.com/RobeDM/LIBIRWLS" target="blank"><i class="fa fa-github fa-fw fa-lg"></i></a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+        
+        <!-- Header Carousel -->
+        
+        
+        <!-- Page Content -->
+        <div class="container container-large">
+            
+            <!-- Marketing Icons Section -->
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    
+                    <hr>
+                    
+                    <h1>
+                        PARALLELIZATION
+                    </h1>
+                    
+                    <hr>
+                    
+                    <h4>
+                        Parallel Framework
+                    </h4>
+                    
+                    <p>We have implemented the algorithms to run on a shared memory multicore environment. In our schema, different threads usually perform different tasks and the method to solve the linear system is recursive so this is a bad scenario for a GPU framework.</p>
+                    
+                    <p>Modern processors have several cache memories organized by levels (L1, L2,..., RAM). When programming high performance applications, it is important to take into account this architecture to avoid bottlenecks: different cores accessing the RAM at the same time, different copies of the data could exist in each core cache, if a core modifies its cache copy, then the system will need to update all caches and RAM to keep consistency, etc. It is also useful to consider that cache is more efficient reading continuous memory data. </p>
+                    
+                    <p>In order to avoid these constraints as far as possible we have adopted the following strategies. Firstly, variables that are not going to be used by other cores are saved outside the shared memory to avoid cache updating. Secondly, every core works in a different memory area. Finally, the datasets are stored in a continuous memory block using a row major order schema.</p>
+                    
+                    <h4>
+                        Map Reduce design pattern
+                    </h4>
+                    
+                    <p>A design pattern called Map Reduce (do not confuse the design pattern with the associated implementation) for processing large datasets on clusters was proposed in \cite{MAPR}. This structure has been shown to be very useful for many tasks in the machine learning area \cite{MAPR2}. A Map Reduce algorithm is composed of a Map() procedure that operates on a portion of the input data and a Reduce() function that performs a summary operation.</p>
+                    
+                    <p>In SGMA, the selection of the best basis element has been implemented using a map function to evaluate the error decrease and a reduce function that finds the candidate that has obtained the highest value.</p>
+                    
+                    <p>In the IRWLS procedure, the steps to update the errors or the variables have been implemented using this design pattern because the operations are independent among the different input elements.</p>
+                    
+                    
+                    <h4>Matrix operations</h4>
+                    
+                    <p>We are working in a shared memory environment, to parallelize the matrix operations we have followed a quadtree schema, iteratively dividing the matrices into four submatrices and performing the operations on the submatrices. This schema allows us to use a number of cores equal to a power of 2 dividing recursively the matrices.</p>
+                    
+                    <h5>Products</h5>
+                    
+                    <p>The parallelization of matrix multiplications can be done very efficiently in a multicore environment creating a different subtask for every position of the resulting matrix. Using a quadtree schema the operations are split like this:</p>
+                    
+                    
+                    <p>
+                    $\left[ \begin{array}{cc} \mathbf{A_1} & \mathbf{A_2} \\ \mathbf{A_3} & \mathbf{A_4}  \end{array} \right]= \left[ \begin{array}{cc} \mathbf{B_1} & \mathbf{B_2} \\ \mathbf{B_3} & \mathbf{B_4}  \end{array} \right] \left[ \begin{array}{cc} \mathbf{C_1} & \mathbf{C_2} \\ \mathbf{C_3} & \mathbf{C_4}  \end{array} \right]$<br>
+                    </p>
+                    
+                    
+                    <hr>
+                    </div>
+                    </div>
+                    <!-- Footer -->
+                    <footer>
+                    <div class="row">
+                    <div class="col-lg-12">
+                    <p>Copyright &copy; 2014-2016</p>
+                </div>
+            </div>
+            </footer>
+            
+        </div>
+        <!-- /.container -->
+        
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+        
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+        
+        <!-- Script to Activate the Carousel -->
+        <script>
+            $('.carousel').carousel({
+                                    interval: 5000 //changes the speed
+                                    })
+            </script>
+        
+    </body>
+    
+</html>
