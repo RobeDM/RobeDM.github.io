@@ -126,7 +126,7 @@
                         Map Reduce design pattern
                     </h4>
                     
-                    <p>A design pattern called Map Reduce (do not confuse the design pattern with the associated implementation) for processing large datasets on clusters was proposed in \cite{MAPR}. This structure has been shown to be very useful for many tasks in the machine learning area \cite{MAPR2}. A Map Reduce algorithm is composed of a Map() procedure that operates on a portion of the input data and a Reduce() function that performs a summary operation.</p>
+                    <p>A design pattern called Map Reduce (do not confuse the design pattern with the associated implementation) for processing large datasets on clusters. This structure has been shown to be very useful for many tasks in the machine learning area. A Map Reduce algorithm is composed of a Map() procedure that operates on a portion of the input data and a Reduce() function that performs a summary operation.</p>
                     
                     <p>In SGMA, the selection of the best basis element has been implemented using a map function to evaluate the error decrease and a reduce function that finds the candidate that has obtained the highest value.</p>
                     
@@ -174,9 +174,46 @@
 
                     <h5>Triangular matrix inversion</h5>
 
-                    <p>Another operation that we have to deal with is the inverse of a triangular matrix. Having a triangular matrix $\mathbf{L}$, its inverse $\mathbf{L^{-1}}$ is triangular and $\mathbb{I}=\mathbf {L}\mathbf {L^{-1}}$, subdividing the matrices we have:</p>
+                    <p>Another operation that we have to deal with is the inverse of a triangular matrix. Having a triangular matrix $\mathbf{L}$, its inverse $\mathbf{L^{-1}}$ is triangular and $\mathbb{I}=\mathbf{L}\mathbf {L^{-1}}$, subdividing the matrices we have:</p>
+
+                    <p>
+                    $\left[ \begin{array}{cc} \mathbb{I} & \mathbf{0} \\ \mathbf{0} & \mathbb{I}  \end{array} \right]= \left[ \begin{array}{cc} \mathbf{L_1} & \mathbf{0} \\ \mathbf{L_3} & \mathbf{L_4}  \end{array} \right] \left[ \begin{array}{cc} (\mathbf{L^{-1})_1} & \mathbf{0} \\ (\mathbf{L^{-1})_3} & (\mathbf{L^{-1})_4}  \end{array} \right]$<br>
+                    $\text{Task 1}\begin{cases}(\mathbf{L^{-1})_1}=\mathbf{L_1}^{-1}\end{cases}$<br>
+                    $\text{Task 2}\begin{cases}(\mathbf{L^{-1})_4}=\mathbf{L_4}^{-1}\end{cases}$<br>
+                    $\mathbf{(L^{-1})_3}=-(\mathbf{L^{-1})_4}\mathbf{L_3}(\mathbf{L^{-1})_1}\Rightarrow \text{Parallelizable}$
+                    </p>
+
+                    <p>In this case, ($\mathbf{L^{-1})_1}$ and ($\mathbf{L^{-1})_4}$ can be computed in parallel at the same time and ($\mathbf{L^{-1})_3}$ can be parallelized using the products described previously.</p>
+
+                     <h5>Solving the linear system</h5>
+
+                    <p>Since the IRWLS procedure solves just one linear system in every iteration, it is not computationally efficient to invert the matrix to solve the linear system that obtains the weights. In the case of IRWLS the matrix to be inverted contains kernel evaluation of every pair of elements. This means that the matrix is positive definite.</p>
+
+                    <p>The Cholesky factorization is a decomposition of a positive-definite matrix into the product of a lower triangular matrix and its conjugate transpose, it is efficient for many numerical solutions and is twice as efficient as the LU decomposition for solving systems of linear equations:</p>
+
+                    <p>
+                    $\mathbf{A}=\mathbf{L_A}\mathbf{L_A}^*$<br>
+                    $\mathbf{L_A}=Chol(\mathbf{A})$
+                    </p>
 
 
+                    <p>Once the factorization has been done, it is possible to solve very efficiently a linear system using backsubstitution with no need to compute the inverse matrix.</p>
+
+                    <p>To perform the parallel Cholesky factorization using the quadtree schema we have previously divided the matrix into four submatrices:</p>
+
+                    <p>
+                    $\left[ \begin{array}{cc} \mathbf{A} & \mathbf{B} \\ \mathbf{C} & \mathbf{D}  \end{array} \right]= \left[ \begin{array}{cc} \mathbf{L_1} & \mathbf{L_2} \\ \mathbf{L_3} & \mathbf{L_4}  \end{array} \right] \left[ \begin{array}{cc} \mathbf{L_1^*} & \mathbf{L_3^*} \\ \mathbf{L_2^*} & \mathbf{L_4^*}  \end{array} \right]$
+                    </p>
+
+
+                    <p>The decomposition obtains a lower triangular matrix, so from (\ref{LIN2}) we know that:</p>
+
+                    <p>
+                    $\mathbf{L_2} = \mathbf{0}$<br>
+                    $\mathbf{A}=\mathbf{L_1}\mathbf{L_1^*}\Rightarrow \mathbf{L_1} = Chol(\mathbf{A})$<br>
+                    $\mathbf{C}=\mathbf{L_3}\mathbf{L_1^*}\Rightarrow \mathbf{L_3}=\mathbf{C}\mathbf{L_1^*}^{-1}$<br>
+                    $\mathbf{D}=\mathbf{L_3}\mathbf{L_3^*}+\mathbf{L_4}\mathbf{L_4^*}\Rightarrow \mathbf{L_4} = Chol(\mathbf{D}-\mathbf{L_3}\mathbf{L_3}^*)$
+                    </p>
 
                     <p>Our proposal to perform the Cholesky decomposition in parallel consists on a recursive implementation dividing the matrix submatrices and solving the matrix operations described in (\ref{subchol1},\ref{subchol2},\ref{subchol3},\ref{subchol4}) in parallel. Once the factorization has been done, the backsubstitution procedure solves the linear system taking little time if we make a comparison with the decomposition.</p>
 
