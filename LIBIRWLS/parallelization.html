@@ -206,7 +206,7 @@
                     </p>
 
 
-                    <p>The decomposition obtains a lower triangular matrix, so from (\ref{LIN2}) we know that:</p>
+                    <p>The decomposition obtains a lower triangular matrix and:</p>
 
                     <p>
                     $\mathbf{L_2} = \mathbf{0}$<br>
@@ -215,7 +215,7 @@
                     $\mathbf{D}=\mathbf{L_3}\mathbf{L_3^*}+\mathbf{L_4}\mathbf{L_4^*}\Rightarrow \mathbf{L_4} = Chol(\mathbf{D}-\mathbf{L_3}\mathbf{L_3}^*)$
                     </p>
 
-                    <p>Our proposal to perform the Cholesky decomposition in parallel consists on a recursive implementation dividing the matrix submatrices and solving the matrix operations described in (\ref{subchol1},\ref{subchol2},\ref{subchol3},\ref{subchol4}) in parallel. Once the factorization has been done, the backsubstitution procedure solves the linear system taking little time if we make a comparison with the decomposition.</p>
+                    <p>Our implementation to perform the Cholesky decomposition in parallel consists on a recursive implementation dividing the matrix submatrices and solving the matrix operations in parallel. Once the factorization has been done, the backsubstitution procedure solves the linear system taking little time if we make a comparison with the decomposition.</p>
 
                     <h4>Overall process</h4>
 
