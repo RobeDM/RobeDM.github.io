@@ -144,7 +144,45 @@
                     
                     <p>
                     $\left[ \begin{array}{cc} \mathbf{A_1} & \mathbf{A_2} \\ \mathbf{A_3} & \mathbf{A_4}  \end{array} \right]= \left[ \begin{array}{cc} \mathbf{B_1} & \mathbf{B_2} \\ \mathbf{B_3} & \mathbf{B_4}  \end{array} \right] \left[ \begin{array}{cc} \mathbf{C_1} & \mathbf{C_2} \\ \mathbf{C_3} & \mathbf{C_4}  \end{array} \right]$<br>
+                    $\text{Task 1}\begin{cases}\mathbf{A_1}=\mathbf{B_1}\mathbf{C_1}+\mathbf{B_2}\mathbf{C_3}\\
+                    \mathbf{A_2}=\mathbf{B_1}\mathbf{C_2}+\mathbf{B_2}\mathbf{C_4}\end{cases}$<br>
+                    $\text{Task 2}\begin{cases} \mathbf{A_3}=\mathbf{B_3}\mathbf{C_1}+\mathbf{B_4}\mathbf{C_3}\\
+                    \mathbf{A_4}=\mathbf{B_3}\mathbf{C_2}+\mathbf{B_4}\mathbf{C_4}\end{cases}$
                     </p>
+                    
+
+                    <p>If one matrix is triangular, the procedure should be divided into subtasks with the same run time. For example, if $\mathbf{C}$ is a lower triangular matrix, then $\mathbf{C_1}$ and $\mathbf{C_4}$ are lower triangular (their products have half of the operations) and $\mathbf{C_2}=\mathbf{0}$:</p>
+
+                    <p>
+                    $\text{Task 1}\begin{cases}\mathbf{A_1}=\mathbf{B_1}\mathbf{C_1}+\mathbf{B_2}\mathbf{C_3}\\
+\mathbf{A_2}=\mathbf{B_2}\mathbf{C_4}\end{cases}$<br>
+                    $\text{Task 2}\begin{cases} \mathbf{A_3}=\mathbf{B_3}\mathbf{C_1}+\mathbf{B_4}\mathbf{C_3}\\
+\mathbf{A_4}=\mathbf{B_4}\mathbf{C_4}\end{cases}$<br>
+                    </p>
+
+                    <h5>Additions and subtractions</h5>
+
+                    <p>The parallelization of additions and subtractions  is a trivial matter and the operations can be directly parallelized:</p>
+
+                    <p>
+                    $\left[ \begin{array}{cc} \mathbf{A_1} & \mathbf{A_2} \\ \mathbf{A_3} & \mathbf{A_4}  \end{array} \right]= \left[ \begin{array}{cc} \mathbf{B_1} & \mathbf{B_2} \\ \mathbf{B_3} & \mathbf{B_4}  \end{array} \right] +\left[ \begin{array}{cc} \mathbf{C_1} & \mathbf{C_2} \\ \mathbf{C_3} & \mathbf{C_4}  \end{array} \right]$<br>
+                     $\text{Task 1}\begin{cases}\mathbf{A_1}=\mathbf{B_1}+\mathbf{C_1}\\
+\mathbf{A_2}=\mathbf{B_2}+\mathbf{C_2}\end{cases}$<br>
+                     $\text{Task 2}\begin{cases} \mathbf{A_3}=\mathbf{B_3}+\mathbf{C_3}\\
+\mathbf{A_4}=\mathbf{B_4}+\mathbf{C_4}\end{cases}$
+                    </p>
+
+                    <h5>Triangular matrix inversion</h5>
+
+                    <p>Another operation that we have to deal with is the inverse of a triangular matrix. Having a triangular matrix $\mathbf{L}$, its inverse $\mathbf{L^{-1}}$ is triangular and $\mathbb{I}=\mathbf {L}\mathbf {L^{-1}}$, subdividing the matrices we have:</p>
+
+
+
+                    <p>Our proposal to perform the Cholesky decomposition in parallel consists on a recursive implementation dividing the matrix submatrices and solving the matrix operations described in (\ref{subchol1},\ref{subchol2},\ref{subchol3},\ref{subchol4}) in parallel. Once the factorization has been done, the backsubstitution procedure solves the linear system taking little time if we make a comparison with the decomposition.</p>
+
+                    <h4>Overall process</h4>
+
+                    <p>Both algorithms, a parallel IRWLS (called PIRWLS) and a parallel semi-parametric IRWLS (called PSIRWLS) to solve SVMs have been implemented using the algorithms and considerations analyzed in previous sections. The few portions of non-parallel code take negligible run time, meaning that these models are a good schema to make SVMs practical in an increasing number of scenarios.</p>
                     
                     
                     <hr>
