@@ -151,6 +151,12 @@
                 <p>
                 We have also tested this software using the Intel MKL library instead of blas and lapack. Due to the fact that it is not open source software we don't provide here the intallation instructions.
                 </p>
+
+                <h5>
+                Dependencies on Windows
+                </h5>
+                
+                <p>LIBIRWLS contains windows static executable files that were precompiled for 64bits instancies. These executables are static so no extra packages are needed.</p>
                 
                 <h5>
                 Dependencies on Unix operating systems (OS X or any linux distribution)
@@ -228,11 +234,19 @@
                     Compiling
                 </h4>
                 
-                <p>After downloading the code from github, access the application folder and build the software using the make command</p>
+                <h5>
+                    Windows
+                </h5>
+                
+                <p>The source code has been precompiled for windows and executable files are in the "windows" folder.</p>
 
                 <h5>
-                    If you use blas and lapack:
+                Unix, Linux, Os X
                 </h5>
+                
+                <p>
+                    If you use blas and lapack:
+                </p>
                 <div class="shell-wrap">
                     <p class="shell-top-bar">/Users/robedm/</p>
                     <ul class="shell-body">
@@ -240,9 +254,9 @@
                         <li>make</li>
                     </ul>
                 </div>
-                <h5>
+                <p>
                     If you use MKL:
-                </h5>
+                </p>
                 <div class="shell-wrap">
                     <p class="shell-top-bar">/Users/robedm/</p>
                     <ul class="shell-body">
