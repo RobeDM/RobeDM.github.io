@@ -121,7 +121,7 @@
                     
                     <p>where $y_i$ indicates the class of the training sample $\mathbf{x}_i$.</p>
                     
-                    <p>The primal optimization problem to solve a SVM when we use soft margin classification to allow samples inside the classification margin and using a kernel functions is:</p>
+                    <p>The primal optimization problem to solve a SVM when we use soft margin classification to allow samples inside the classification margin and using a kernel functions \cite{VAPNIK} is:</p>
                     
                     <p align="center">
                     $\min_{\mathbf{w},b} \frac{1}{2}\Vert\mathbf{w}\Vert^2+C\sum_{i=1}^n{\xi_i}$<br>
