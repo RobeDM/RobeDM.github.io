@@ -167,6 +167,45 @@
                 LAPACK can be found here:<a href="http://www.netlib.org/lapack/">http://www.netlib.org/lapack/</a>
                 </p>
                 
+                <p>
+                Both packages are required when you deal with linear algebra operations. Originally, both packages were written in FORTRAN. To code in C the solution is to create a libraray. There’re a few steps to consider while installing the packages. First, you have to install BLAS, because LAPACK requires it. If you have downloaded both packages, unzip them. Switch to the BLAS folder and execute the following command to compile the fortran files:
+                <div class="shell-wrap">
+                    <p class="shell-top-bar">/Users/robedm/blas</p>
+                    <ul class="shell-body">
+                        <li>make</li>
+                    </ul>
+                </div>
+                
+                Then rename the created library to “libblas.a” and copy that file to your library folder. Therefore execute the following commands:
+                
+                <div class="shell-wrap">
+                    <p class="shell-top-bar">/Users/robedm/blas</p>
+                    <ul class="shell-body">
+                        <li>mv blas_UNIX.a libblas.a</li>
+                        <li>sudo cp libblas.a /usr/local/lib/</li>
+                    </ul>
+                </div>
+                
+                Now switch to the LAPACK folder and adjust the file “make.inc”. If you set all parameter correctly, execute the command:
+                
+                <div class="shell-wrap">
+                    <p class="shell-top-bar">/Users/robedm/lapack</p>
+                    <ul class="shell-body">
+                        <li>make</li>
+                    </ul>
+                </div>
+  
+                Copy that file to your library folder by executing:
+  
+                <div class="shell-wrap">
+                    <p class="shell-top-bar">/Users/robedm/lapack</p>
+                    <ul class="shell-body">
+                        <li>sudo cp libblas.a /usr/local/lib/</li>
+                    </ul>
+                </div>
+                
+                </p>
+                
                 <hr>
                 
                 <h4>
