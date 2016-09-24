@@ -115,14 +115,33 @@
                     </li>
                 </ul>
                 </p>
-
+                
+                <hr>
+                
+                <h4>
+                    Download
+                </h4>
+                
+                <p>
+                You can download LIBIRWLS from the Github repository hosting service using the git command line:
+                <div class="shell-wrap">
+                    <p class="shell-top-bar">/Users/robedm/</p>
+                    <ul class="shell-body">
+                        <li>git clone git://github.com/RobeDM/LIBIRWLS.git</li>
+                    </ul>
+                </div>
+                </p>
+                
+                <hr>
+                
                 <h4><u>
                     Windows
                 </h4></u>
 
                  <p>LIBIRWLS contains windows static executable files that were precompiled for 64bits instancies. These executables are static so no extra packages are needed.</p>
                  <p>The source code has been precompiled for windows and executable files are in the "windows" folder.</p>
-                 
+                
+                <hr>
 
                 <h4><u>
                 Mac OS X
@@ -164,6 +183,7 @@
                 
                 </p>
                 
+                <hr>
 
                 <h4><u>
                 Linux, Unix
@@ -174,6 +194,7 @@
                 </h5>
                 
                 <p>
+                
                 <ul>
                     <li>Ubuntu, Debian, Slackware and other linux distributions using the Advanced Package Tools:<br>
                         The Advanced Package Tool, or APT, is a free software user interface that works with core libraries to handle the installation and removal of software on some Linux distributions. If gcc is not installed, use the following command line:
@@ -194,47 +215,14 @@
                     </li>
                     <li> If you have OS X or any Unix distribution with no apt-get support you need to download BLAS and lapack from their official webpages and install them following their instructions.<a href="https://pheiter.wordpress.com/2012/09/04/howto-installing-lapack-and-blas-on-mac-os/">In this link </a> you can find simple and detailed instructions to do that.</li>
                 </ul>
+                
                 </p>
                 
-               
-       
-
-                  
-                <hr>
-                
-                <h4>
-                    Download
-                </h4>
-                
-                <p>
-                You can download LIBIRWLS from the Github repository hosting service using the git command line:
-                <div class="shell-wrap">
-                    <p class="shell-top-bar">/Users/robedm/</p>
-                    <ul class="shell-body">
-                        <li>git clone git://github.com/RobeDM/LIBIRWLS.git</li>
-                    </ul>
-                </div>
-                </p>
-                
-                <hr>
- 
-                <h4>
-                    Compiling
-                </h4>
-                
+            
                 <h5>
-                    Windows
+                Compiling
                 </h5>
-                
-                <p>The source code has been precompiled for windows and executable files are in the "windows" folder.</p>
-
-                <h5>
-                Unix, Linux, Os X
-                </h5>
-                
-                <p>
-                    If you use blas and lapack:
-                </p>
+            
                 <div class="shell-wrap">
                     <p class="shell-top-bar">/Users/robedm/</p>
                     <ul class="shell-body">
@@ -242,27 +230,15 @@
                         <li>make</li>
                     </ul>
                 </div>
-                <p>
-                    If you use MKL:
-                </p>
-                <div class="shell-wrap">
-                    <p class="shell-top-bar">/Users/robedm/</p>
-                    <ul class="shell-body">
-                        <li>cd LIBIRWLS</li>
-                        <li>make USE_MKL=1</li>
-                    </ul>
-                </div>
 
-                <p>
-                If the libraries are not installed in the standard paths you can edit the file Makefile and uncomment and edit the following variables:
-                </p>
-                <p>
-                INCLUDEPATH to tell the are the header files .h
-                </p>
 
-                <p>
-                LIBRARYPATH to tell the linear algebra libraries location.
-                </p>
+                <hr>
+                
+
+ 
+
+
+
 
                 <hr>
 
