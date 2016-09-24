@@ -211,11 +211,11 @@
                 <p>
                 This software needs BLAS and Lapack standard routines. We have two different alternatives:
                 <ul>
-                    <li>If you are a Mac user, there is no need to install them because Mac comes with BLAS and LAPACK since Maverick. The names of the files are libBLAS.dylib and libLAPACK.dylib and they are in the folder:<br>
+                    <li>If you are a Mac user, there is no need to install them because Mac comes with BLAS and LAPACK since Maverick. The names of the files are libBLAS.dylib and libLAPACK.dylib, in some OS X versions they are in the folder:<br>
                         <b>/System/Library/Frameworks/Accelerate.framework/Frameworks/vecLib.framework/Versions/Current/</b><br>
                         The folder may change depending on the OS X version, you can use the command find to find out the location:<br>
                         <b>sudo find /System/Library/ -name "libBLAS.dylib"</b><br>
-                        <b>sudo find /System/Library/ -name "libBLAS.dylib"</b><br>
+                        <b>sudo find /System/Library/ -name "libLAPACK.dylib"</b><br>
                         These libraries are not in a library path, you need to put a copy of them in the folder /usr/local/lib</li>
                     <li>The alternative is to download both libraries, compile them and put the libraries in the library path. <a href="https://pheiter.wordpress.com/2012/09/04/howto-installing-lapack-and-blas-on-mac-os/">In this link </a> you can find simple and detailed instructions to do that.</li>
                 </ul>
