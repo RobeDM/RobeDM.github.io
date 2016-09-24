@@ -227,23 +227,36 @@
                 
                 <p>The default compiler installed in OS X is clang. It currently doesn't support openmp to perform the parallelization. We recommend the installation of gcc using Homebrew or Macports
                 <ul>
-                    <li>Macports: Download and Install macports from <a href="https://www.macports.org/">https://www.macports.org/</a> and install gcc using the following command line:<br>
+                    <li>Macports (this option is faster): Download and Install macports from <a href="https://www.macports.org/">https://www.macports.org/</a> and install gcc using the following command line:<br>
                         <b>sudo port install gcc49</b></li>
                     <li>Homebrew: Install homebrew using the following command line:<br>
                         <b>/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</b><br>
                         and then install gcc using the command line:<br>
-                        <b>brew install gcc</b></li>
+                        <b>brew install gcc --without-multilib</b></li>
                 </ul>
                 
-                Then you can use the make command telling the path of the compiler that you have installed (the default path for macports gcc is /opt/local/bin/gcc/ and the default path for homebrew is /usr/local/Library/Homebrew/shims/):
+                Then you can use the make command telling the path of the compiler that you have installed (the default path for macports gcc is /opt/local/bin/ and the default path for homebrew is /usr/local/Cellar/), for example:
                 
-                <div class="shell-wrap">
-                    <p class="shell-top-bar">/Users/robedm/</p>
-                    <ul class="shell-body">
-                        <li>cd LIBIRWLS</li>
-                        <li>make CC=pathToYourGCCCompiler</li>
-                    </ul>
-                </div>
+                <ul>
+                    <li>If you have installed gcc 4.9 using Macports:
+                        <div class="shell-wrap">
+                            <p class="shell-top-bar">/Users/robedm/</p>
+                            <ul class="shell-body">
+                                <li>cd LIBIRWLS</li>
+                                <li>make CC=/opt/local/bin/gcc-mp-4.9</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>If you have installed gcc 6 using Homebrew:
+                        <div class="shell-wrap">
+                            <p class="shell-top-bar">/Users/robedm/</p>
+                            <ul class="shell-body">
+                                <li>cd LIBIRWLS</li>
+                                <li>make CC=/usr/local/Cellar/gcc/6.2.0/bin/gcc-6</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
                 
                 </p>
 
