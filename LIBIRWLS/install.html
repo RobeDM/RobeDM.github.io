@@ -147,7 +147,7 @@
                 <p>The default compiler installed in OS X is clang. It currently doesn't support openmp to perform the parallelization. We recommend the installation of gcc using Homebrew or Macports
                 <ul>
                     <li>Macports: Download and Install macports from <a href="https://www.macports.org/">https://www.macports.org/</a> and install gcc using the following command line:<br>
-                        <b>sudo port install gcc47</b></li>
+                        <b>sudo port install gcc49</b></li>
                     <li>Homebrew: Install homebrew using the following command line <b>/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</b> and then install gcc using the command line:<br>
                         <b>brew install gcc</b></li>
                 </ul>
@@ -164,100 +164,42 @@
                 
                 </p>
                 
-                <p>
 
                 <h4><u>
                 Linux, Unix
                 </h4></u>
-
+                
                 <h5>
-                Dependencies on Ubuntu, Debian, Slackware and other linux distributions using the Advanced Package Tools
+                    Dependencies
                 </h5>
                 
                 <p>
-                The Advanced Package Tool, or APT, is a free software user interface that works with core libraries to handle the installation and removal of software on some Linux distributions.
-                </p>
-                <p>
-                OPENMP is currently included with the gcc compiler, if gcc is not installed, use the following command line:
+                <ul>
+                    <li>Ubuntu, Debian, Slackware and other linux distributions using the Advanced Package Tools:<br>
+                        The Advanced Package Tool, or APT, is a free software user interface that works with core libraries to handle the installation and removal of software on some Linux distributions. If gcc is not installed, use the following command line:
+                        <div class="shell-wrap">
+                            <p class="shell-top-bar">/Users/robedm/</p>
+                            <ul class="shell-body">
+                                <li>sudo apt-get install build-essential</li>
+                            </ul>
+                        </div>
+                         To install the linear algebra routines use the following command line:<br>
+                         <div class="shell-wrap">
+                             <p class="shell-top-bar">/Users/robedm/</p>
+                             <ul class="shell-body">
+                                 <li>sudo apt-get install liblapack-dev</li>
+                                 <li> sudo apt-get install libblas-dev</li>
+                             </ul>
+                         </div>
+                    </li>
+                    <li> If you have OS X or any Unix distribution with no apt-get support you need to download BLAS and lapack from their official webpages and install them following their instructions.<a href="https://pheiter.wordpress.com/2012/09/04/howto-installing-lapack-and-blas-on-mac-os/">In this link </a> you can find simple and detailed instructions to do that.</li>
+                </ul>
                 </p>
                 
-                <div class="shell-wrap">
-                    <p class="shell-top-bar">/Users/robedm/</p>
-                    <ul class="shell-body">
-                        <li>sudo apt-get install build-essential</li>
-                    </ul>
-                </div>
-                
-                <p>
-                To install the linear algebra routines use the following command line:
-                </p>
+               
+       
 
-                <div class="shell-wrap">
-                    <p class="shell-top-bar">/Users/robedm/</p>
-                    <ul class="shell-body">
-                    <li>sudo apt-get install liblapack-dev</li>
-                    <li> sudo apt-get install libblas-dev</li>
-                    </ul>
-                </div>
-
-                <p>
-                We have also tested this software using the Intel MKL library instead of blas and lapack. Due to the fact that it is not open source software we don't provide here the intallation instructions.
-                </p>
-
-                <h5>
-                Dependencies on Unix operating systems (OS X or any linux distribution)
-                </h5>
-                
-                <p>
-                If you have OS X or any Unix distribution with no apt-get support you need to download BLAS and lapack from their official webpages and install them following their instructions.
-                </p>
-                
-                <p>
-                BLAS can be found here:<a href="http://www.netlib.org/blas/">http://www.netlib.org/blas/</a>
-                </p>
-                <p>
-                LAPACK can be found here:<a href="http://www.netlib.org/lapack/">http://www.netlib.org/lapack/</a>
-                </p>
-                
-                <p>
-                Both packages are required when you deal with linear algebra operations. Originally, both packages were written in FORTRAN. To code in C the solution is to create a libraray. There’re a few steps to consider while installing the packages. First, you have to install BLAS, because LAPACK requires it. If you have downloaded both packages, unzip them. Switch to the BLAS folder and execute the following command to compile the fortran files:
-                <div class="shell-wrap">
-                    <p class="shell-top-bar">/Users/robedm/blas</p>
-                    <ul class="shell-body">
-                        <li>make</li>
-                    </ul>
-                </div>
-                
-                Then rename the created library to “libblas.a” and copy that file to your library folder. Therefore execute the following commands:
-                
-                <div class="shell-wrap">
-                    <p class="shell-top-bar">/Users/robedm/blas</p>
-                    <ul class="shell-body">
-                        <li>mv blas_UNIX.a libblas.a</li>
-                        <li>sudo cp libblas.a /usr/local/lib/</li>
-                    </ul>
-                </div>
-                
-                Now switch to the LAPACK folder, rename "make.inc.example" to "make.inc" and adjust the file. If you set all parameter correctly, execute the command:
-                
-                <div class="shell-wrap">
-                    <p class="shell-top-bar">/Users/robedm/lapack</p>
-                    <ul class="shell-body">
-                        <li>make</li>
-                    </ul>
-                </div>
-  
-                Copy that file to your library folder by executing:
-  
-                <div class="shell-wrap">
-                    <p class="shell-top-bar">/Users/robedm/lapack</p>
-                    <ul class="shell-body">
-                        <li>sudo cp libblas.a /usr/local/lib/</li>
-                    </ul>
-                </div>
-                
-                </p>
-                
+                  
                 <hr>
                 
                 <h4>
