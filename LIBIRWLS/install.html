@@ -167,7 +167,9 @@
                 <ul>
                     <li>Macports: Download and Install macports from <a href="https://www.macports.org/">https://www.macports.org/</a> and install gcc using the following command line:<br>
                         <b>sudo port install gcc49</b></li>
-                    <li>Homebrew: Install homebrew using the following command line <b>/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</b> and then install gcc using the command line:<br>
+                    <li>Homebrew: Install homebrew using the following command line:<br>
+                        <b>/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</b><br>
+                        and then install gcc using the command line:<br>
                         <b>brew install gcc</b></li>
                 </ul>
                 
@@ -213,7 +215,7 @@
                              </ul>
                          </div>
                     </li>
-                    <li> If you have OS X or any Unix distribution with no apt-get support you need to download BLAS and lapack from their official webpages and install them following their instructions.<a href="https://pheiter.wordpress.com/2012/09/04/howto-installing-lapack-and-blas-on-mac-os/">In this link </a> you can find simple and detailed instructions to do that.</li>
+                    <li> If you have any Linux or Unix distribution with no apt-get support you need to download BLAS and lapack from their official webpages and install them following their instructions.<a href="https://pheiter.wordpress.com/2012/09/04/howto-installing-lapack-and-blas-on-mac-os/">In this link </a> you can find simple and detailed instructions to do that.</li>
                 </ul>
                 
                 </p>
@@ -223,6 +225,8 @@
                 Compiling
                 </h5>
             
+                <p>
+                You need to run make in the library folder:
                 <div class="shell-wrap">
                     <p class="shell-top-bar">/Users/robedm/</p>
                     <ul class="shell-body">
@@ -230,14 +234,7 @@
                         <li>make</li>
                     </ul>
                 </div>
-
-
-                <hr>
-                
-
- 
-
-
+                </p>
 
 
                 <hr>
