@@ -101,6 +101,20 @@
                 </h1>
                 
                 <hr>
+                
+                <p>
+                This software is implemented in C and it requires the following libraries:
+                
+                <ul>
+                    <li>Openmp: To parallelize the software</li>
+                    <li>A linear algebra package that implements BLAS and Lapack standard routines. We have tested two alternatives:
+                        <ul>
+                            <li>BLAS and Lapack</li>
+                            <li>IntelMKL</li>
+                        </ul>
+                    </li>
+                </ul>
+                </p>
 
                 <h4><u>
                     Windows
@@ -122,7 +136,7 @@
                 This software needs BLAS and Lapack standard routines. We have two different alternatives:
                 <ul>
                     <li>If you are a Mac user, there is no need to install them because Mac comes with BLAS and LAPACK since Maverick. The names of the files are libBLAS.dylib and libLAPACK.dylib and they are in the folder /System/Library/Frameworks/Accelerate.framework/Frameworks/vecLib.framework/Versions/Current/ (the folder may change depending on the OS X version, you can use the command find to find out the location). These libraries are not in a library path, you need to put a copy of them in the folder /usr/local/lib</li>
-                    <li>Download both libraries, compile them using the command make and put the libraries in the library path. <a href="https://pheiter.wordpress.com/2012/09/04/howto-installing-lapack-and-blas-on-mac-os/">In this link </a> you can find simple and detailed instructions to do that.</li>
+                    <li>The alternative is to download both libraries, compile them and put the libraries in the library path. <a href="https://pheiter.wordpress.com/2012/09/04/howto-installing-lapack-and-blas-on-mac-os/">In this link </a> you can find simple and detailed instructions to do that.</li>
                 </ul>
                 </p>
                 
@@ -132,24 +146,30 @@
                 
                 <p>The default compiler installed in OS X is clang. It currently doesn't support openmp to perform the parallelization. We recommend the installation of gcc using Homebrew or Macports
                 <ul>
-                    <li>Macports: Download and Install macports from <a href="https://www.macports.org/">https://www.macports.org/</a> and install gcc using the following command line: <b>sudo port install gcc47</b></li>
-                    <li>Homebrew: Install homebrew using the following command line <b>/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</b> and then install gcc using the command line <b>brew install gcc</b></li>
+                    <li>Macports: Download and Install macports from <a href="https://www.macports.org/">https://www.macports.org/</a> and install gcc using the following command line:<br>
+                        <b>sudo port install gcc47</b></li>
+                    <li>Homebrew: Install homebrew using the following command line <b>/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</b> and then install gcc using the command line:<br>
+                        <b>brew install gcc</b></li>
                 </ul>
+                
+                Then you can use the make command telling the path of the compiler that you have installed (the default path for macports gcc is /opt/local/bin/gcc/ and the default path for homebrew is /usr/local/Library/Homebrew/shims/):
+                
+                <div class="shell-wrap">
+                    <p class="shell-top-bar">/Users/robedm/</p>
+                    <ul class="shell-body">
+                        <li>cd LIBIRWLS</li>
+                        <li>make CC=pathToYourGCCCompiler</li>
+                    </ul>
+                </div>
+                
                 </p>
                 
                 <p>
-                This software is implemented in C and it requires the following libraries:
-                
-                <ul>
-                    <li>Openmp: To parallelize the software</li>
-                    <li>A linear algebra package that implements BLAS and Lapack standard routines. We have tested two alternatives:
-                        <ul>
-                            <li>BLAS and Lapack</li>
-                            <li>IntelMKL</li>
-                        </ul>
-                    </li>
-                </ul>
-                
+
+                <h4><u>
+                Linux, Unix
+                </h4></u>
+
                 <h5>
                 Dependencies on Ubuntu, Debian, Slackware and other linux distributions using the Advanced Package Tools
                 </h5>
