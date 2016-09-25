@@ -141,7 +141,7 @@
                     </h4>
                     
                     <p>
-                    SGMA is a very common greedy technique to select the basis elements of the semi-parametric model. It has been used very successfully in kernel methods.
+                    SGMA <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.43.3153&rep=rep1&type=pdf">(Smola, 2000)</a> is a very common greedy technique to select the basis elements of the semi-parametric model. It has been used very successfully in kernel methods.
                     </p>
                     
                     <p>It works by iteratively growing up the set with the element that maximizes a criteria.</p>
@@ -188,7 +188,7 @@
                         IRWLS to train a semiparametric SVM:
                     </h4>
                     
-                    <p>An IRWLS schema has been successfully used to train semi-parametric SVMs by rearranging the cost function:</p>
+                    <p>An IRWLS schema has been successfully used to train semi-parametric SVMs by rearranging the cost function <a href="http://www.sciencedirect.com/science/article/pii/S0031320302003515">(Parrado, 2003)</a>:</p>
  
                     <p align="center">
                     $\min_{\boldsymbol{\beta}}\frac{1}{2}\mathbf{\boldsymbol{\beta}^T\mathbf{K}_c\boldsymbol{\beta}}+\sum_{i}a_{i}e_i^2$<br>
@@ -197,6 +197,10 @@
                     </p>
                     
                     <p>The procedure works in a similarly way to the full SVM, $a_i$ is not a function of $\boldsymbol{\beta}$ and the algorithm works iteratively following a process of obtaining $\boldsymbol{\beta}$ and recalculating $a_i$ using these weights.</p>
+                    
+                    <p>
+                    To parallelize this software, a shared memory parallelization has been performed as described in <a href="http://www.sciencedirect.com/science/article/pii/S0925231216000837">(Díaz Morales, 2016a)</a><a href="http://www.sciencedirect.com/science/article/pii/S0167865516302173">(Díaz Morales, 2016b)</a>.
+                    </p>
                     <hr>
                 </div>
             </div>
