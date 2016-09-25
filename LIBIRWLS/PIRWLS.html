@@ -124,7 +124,7 @@
                     
                     <p>where $y_i$ indicates the class of the training sample $\mathbf{x}_i$.</p>
                     
-                    <p>The primal optimization problem to solve a SVM when we use soft margin classification to allow samples inside the classification margin and using a kernel functions is:</p>
+                    <p>The primal optimization problem to solve a SVM when we use soft margin classification to allow samples inside the classification margin and using a kernel functions is <a href="http://link.springer.com/article/10.1007/bf00994018">(Cortes, 1995)</a>:</p>
                     
                     <p align="center">
                     $\min_{\mathbf{w},b} \frac{1}{2}\Vert\mathbf{w}\Vert^2+C\sum_{i=1}^n{\xi_i}$<br>
@@ -152,7 +152,7 @@
                     </h4>
                     
                     <p>
-                    IRWLS rearranges the cost function to be independent of $\xi_i$:
+                    IRWLS rearranges the cost function to be independent of $\xi_i$ <a href="http://papers.nips.cc/paper/1855-fast-training-of-support-vector-classifiers.pdf">(Perez Cruz, 2001)</a>:
                     </p>
                     
                     <p align="center">
@@ -176,9 +176,13 @@
                     </ul>
                     
                     <p>
-                    This software makes use of both methods, training samples differentiation and it has an outer loop that selects a working set in every iteration and an inner loop that updates the weights of the working set using the IRWLS procedure.
+                    This software makes use of both methods to solve a full SVM, training samples differentiation and it has an outer loop that selects a working set in every iteration and an inner loop that updates the weights of the working set using the IRWLS procedure.
                     </p>
-                    
+
+
+                    <p>
+                    To parallelize this software, a shared memory parallelization has been performed as described in <a href="http://www.sciencedirect.com/science/article/pii/S0167865516302173">(Díaz Morales, 2016b)</a>.
+                    </p>
                     <hr>
                 </div>
             </div>
