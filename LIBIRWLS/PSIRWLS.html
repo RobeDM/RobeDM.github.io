@@ -112,9 +112,9 @@
                     
                     <hr>
                     
-                    <h4>
+                    <h3>
                         Semiparametric Support Vector Machines
-                    </h4>
+                    </h3>
                     
                     <p>
                     The solution of the SVM (see PIRWLS section) is non-parametric, the size of the classification function (that is the number of Support Vectors) is not predetermined and is modeled based on the training samples. To keep the complexity under control a semi-parametric models can be adopted. A set of m basis elements $\{\mathbf{c}_1,...,\mathbf{c}_m\}$ can be selected and $\mathbf{w}$ (see PIRWLS section) is approximated by $\mathbf{w}\simeq \sum_{j=1}^m\beta_j\phi(\mathbf{c}_j)$, giving rise to a classifier of size $m$:
@@ -136,6 +136,19 @@
                     $(\mathbf{k}_i)_j=K(\mathbf{x}_i,\mathbf{c}_j)$
                     </p>
 
+                    <h3>
+                        Basis elements selection
+                    </h3>
+                    
+                    This algorithm contains two different methods to select the basis elements of the semiparametric model:
+
+                    <h4>
+                        Random Selection
+                    </h4>
+ 
+                    <p>
+                    A simple random selection of elements from the training set.
+                    </p>
                     <h4>
                         Sparse Greedy Matrix Aproximaton
                     </h4>
@@ -184,9 +197,11 @@
                     
                     <p>SGMA aims at looking for the best elements to be used in the semi-parametric model. It has to identify the elements of the training set whose porjections most accurately represent the projected Support Vectors. To do that, in every iteration selects a group of new candidates and grow the set of basis elements with the element with higher Error Decrease (ED).</p>
 
-                    <h4>
+
+
+                    <h3>
                         IRWLS to train a semiparametric SVM:
-                    </h4>
+                    </h3>
                     
                     <p>An IRWLS schema has been successfully used to train semi-parametric SVMs by rearranging the cost function <a href="http://www.sciencedirect.com/science/article/pii/S0031320302003515">(Parrado, 2003)</a>:</p>
  
