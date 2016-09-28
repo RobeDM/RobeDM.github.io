@@ -110,7 +110,7 @@
                 
                 <ul>
                     <li>Openmp: To parallelize the software.</li>
-                    <li>BLAS and Lapack: Linear algebra packages with standard routines.</li>
+                    <li>ATLAS: Linear algebra package with standard routines.</li>
                 </ul>
                 </p>
                 
@@ -160,12 +160,28 @@
                         <div class="shell-wrap">
                             <p class="shell-top-bar">/Users/robedm/</p>
                             <ul class="shell-body">
-                                <li>sudo apt-get install liblapack-dev</li>
-                                <li> sudo apt-get install libblas-dev</li>
+                                <li>sudo apt-get install libatlas-base-dev</li>
                             </ul>
                         </div>
                     </li>
-                    <li> If you have any Linux or Unix distribution with no apt-get support you need to download BLAS and lapack from their official webpages and install them following their instructions.<a href="https://pheiter.wordpress.com/2012/09/04/howto-installing-lapack-and-blas-on-mac-os/">In this link </a> you can find simple and detailed instructions to do that.</li>
+                    <li> If you have any Linux or Unix distribution with no apt-get support you need to download ATLAS from the <a href="https://sourceforge.net/projects/math-atlas/files/">official repository</a> and install it following the instructions that are detailed in the file INSTALL.txt. If you are impatient, for a basic installation on a 64 bits computer, this is the basic outline:
+                        
+                        <div class="shell-wrap">
+                            <p class="shell-top-bar">/Users/robedm/</p>
+                            <ul class="shell-body">
+                                <li>tar -xvjf atlas3.10.2.tar.bz2</li>
+                                <li>cd ATLAS</li>
+                                <li>mkdir my_build_dir</li>
+                                <li>cd my_build_dir</li>
+                                <li>../configure -b 64 --prefix=/installation/directory ! Tell the installation directory</li>
+                                <li>make                                                ! tune and compile library</li>
+                                <li>make check                                          ! perform sanity tests</li>
+                                <li>make ptcheck                                        ! checks of threaded code for multiprocessor systems</li>
+                                <li>make time                                           ! provide performance summary as % of clock rate</li>
+                                <li>make install                                        ! copy the library in the installation directory</li>
+                            </ul>
+                        </div>
+                       </li>
                 </ul>
                 
                 </p>
@@ -176,7 +192,8 @@
                 </h5>
                 
                 <p>
-                You need to run make in the library folder:
+                You need to run make in the library folder to build LIBIRWLS. If you have installed atlas using apt-get:
+
                 <div class="shell-wrap">
                     <p class="shell-top-bar">/Users/robedm/</p>
                     <ul class="shell-body">
@@ -185,8 +202,20 @@
                     </ul>
                 </div>
                 </p>
-                
-                
+     
+     <p>
+     
+     If you have manually installed ATLAS, you must tell the installation directory.
+     
+     <div class="shell-wrap">
+         <p class="shell-top-bar">/Users/robedm/</p>
+         <ul class="shell-body">
+             <li>cd LIBIRWLS</li>
+             <li>make ATLASDIR=/installation/directory </li>
+         </ul>
+     </div>
+     </p>
+     
                 <h4><u>
                     Windows
                 </u></h4>
@@ -204,16 +233,23 @@
                 </h5>
                 
                 <p>
-                This software needs BLAS and Lapack standard routines. We have two different alternatives:
-                <ul>
-                    <li>If you are a Mac user, there is no need to install them because Mac comes with BLAS and LAPACK since Maverick. The names of the files are libBLAS.dylib and libLAPACK.dylib, in some OS X versions they are in the folder:<br>
-                        <b>/System/Library/Frameworks/Accelerate.framework/Frameworks/vecLib.framework/Versions/Current/</b><br>
-                        The folder may change depending on the OS X version, you can use the command find to find out the location:<br>
-                        <b>sudo find /System/Library/ -name "libBLAS.dylib"</b><br>
-                        <b>sudo find /System/Library/ -name "libLAPACK.dylib"</b><br>
-                        These libraries are not in a library path, you need to put a copy of them in the folder /usr/local/lib</li>
-                    <li>The alternative is to download both libraries, compile them and put the libraries in the library path. <a href="https://pheiter.wordpress.com/2012/09/04/howto-installing-lapack-and-blas-on-mac-os/">In this link </a> you can find simple and detailed instructions to do that.</li>
-                </ul>
+                This software needs the ATLAS algebra standard routines. You need to download ATLAS from the <a href="https://sourceforge.net/projects/math-atlas/files/">official repository</a> and install it following the instructions that are detailed in the file INSTALL.txt. If you are impatient, for a basic installation on a 64 bits computer, this is the basic outline:
+                
+                <div class="shell-wrap">
+                    <p class="shell-top-bar">/Users/robedm/</p>
+                    <ul class="shell-body">
+                        <li>tar -xvjf atlas3.10.2.tar.bz2</li>
+                        <li>cd ATLAS</li>
+                        <li>mkdir my_build_dir</li>
+                        <li>cd my_build_dir</li>
+                        <li>../configure -b 64 --prefix=/installation/directory ! Tell the installation directory</li>
+                        <li>make                                                ! tune and compile library</li>
+                        <li>make check                                          ! perform sanity tests</li>
+                        <li>make ptcheck                                        ! checks of threaded code for multiprocessor systems</li>
+                        <li>make time                                           ! provide performance summary as % of clock rate</li>
+                        <li>make install                                        ! copy the library in the installation directory</li>
+                    </ul>
+                </div>
                 </p>
                 
                 <h5>
@@ -230,7 +266,7 @@
                         <b>brew install gcc --without-multilib</b></li>
                 </ul>
                 
-                Then you can use the make command telling the path of the compiler that you have installed (the default path for macports gcc is /opt/local/bin/ and the default path for homebrew is /usr/local/Cellar/), for example:
+                Then you can use the make command telling the path of the compiler that you have installed (the default path for macports gcc is /opt/local/bin/ and the default path for homebrew is /usr/local/Cellar/) and the installation directory of ATLAS, for example:
                 
                 <ul>
                     <li>If you have installed gcc 4.9 using Macports:
@@ -238,7 +274,7 @@
                             <p class="shell-top-bar">/Users/robedm/</p>
                             <ul class="shell-body">
                                 <li>cd LIBIRWLS</li>
-                                <li>make CC=/opt/local/bin/gcc-mp-4.9</li>
+                                <li>make CC=/opt/local/bin/gcc-mp-4.9 ATLASDIR=/installation/directory</li>
                             </ul>
                         </div>
                     </li>
@@ -247,7 +283,7 @@
                             <p class="shell-top-bar">/Users/robedm/</p>
                             <ul class="shell-body">
                                 <li>cd LIBIRWLS</li>
-                                <li>make CC=/usr/local/Cellar/gcc/6.2.0/bin/gcc-6</li>
+                                <li>make CC=/usr/local/Cellar/gcc/6.2.0/bin/gcc-6 ATLASDIR=/installation/directory</li>
                             </ul>
                         </div>
                     </li>
