@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x',['x',['../dc/d1b/structmodel.html#a81da41c8731f95de344a068d302eb336',1,'model::x()'],['../d0/d6e/structsvm__dataset.html#ad3e266a07c610ed3f10df1bab30fd9e5',1,'svm_dataset::x()']]]
+  ['updatememory',['updateMemory',['../d0/d98/ParallelAlgorithms_8h.html#a2f2bfa1b3a76a0a0bb0c1db793205ff2',1,'ParallelAlgorithms.h']]]
 ];

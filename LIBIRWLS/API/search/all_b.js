@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['readmodel',['readModel',['../de/d79/IOStructures_8h.html#a39db6a02819bd37baf33f195ab81d02e',1,'IOStructures.h']]],
-  ['readtrainfile',['readTrainFile',['../de/d79/IOStructures_8h.html#a8edb4ba3a828ebfd3f315794c1fa5936',1,'IOStructures.h']]],
-  ['readunlabeledfile',['readUnlabeledFile',['../de/d79/IOStructures_8h.html#a55bd770c8b94fb281d835b8d96fab13d',1,'IOStructures.h']]],
-  ['rpermute',['rpermute',['../df/d51/PIRWLS-train_8h.html#a9e75aabe599f48c66cbda89320d68a71',1,'PIRWLS-train.h']]]
+  ['nelem',['nElem',['../dc/d1b/structmodel.html#a4877089d41daf2186482e0e6f900d65f',1,'model']]],
+  ['nsvs',['nSVs',['../dc/d1b/structmodel.html#a3b73d79940bbdae365676c4fa56e96ea',1,'model']]],
+  ['numpy2dataset',['numpy2dataset',['../d4/d54/pythonmodule_8c.html#a978cb6144438bc23d419731ffa2df0bf',1,'numpy2dataset(PyObject *arr1, PyObject *arr2):&#160;pythonmodule.c'],['../d0/da7/pythonmodule_8h.html#a978cb6144438bc23d419731ffa2df0bf',1,'numpy2dataset(PyObject *arr1, PyObject *arr2):&#160;pythonmodule.c']]],
+  ['numpy2datasetwithaverage',['numpy2datasetWithAverage',['../d4/d54/pythonmodule_8c.html#a5a74dac1e53f4b081adec57bd65ea917',1,'numpy2datasetWithAverage(PyObject *arr1, PyObject *arr2):&#160;pythonmodule.c'],['../d0/da7/pythonmodule_8h.html#a5a74dac1e53f4b081adec57bd65ea917',1,'numpy2datasetWithAverage(PyObject *arr1, PyObject *arr2):&#160;pythonmodule.c']]]
 ];

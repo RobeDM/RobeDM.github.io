@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y',['y',['../d0/d6e/structsvm__dataset.html#a2bce5da2f59f28fe18eff3f92f92c011',1,'svm_dataset']]]
+  ['value',['value',['../d8/d33/structsvm__sample.html#a2c43371736dc33a9e1d83561a99cf2f7',1,'svm_sample']]]
 ];

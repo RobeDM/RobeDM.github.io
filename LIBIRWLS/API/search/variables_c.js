@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['weights',['weights',['../dc/d1b/structmodel.html#a658dab89d4b4b1a5bd28cdfb4abafe39',1,'model']]]
+  ['threads',['Threads',['../d1/d03/structproperties.html#a56ab77c44fb808e71990074bd75529ed',1,'properties::Threads()'],['../d0/d38/structpredictProperties.html#a602116e0d46424243cb4c971c03695e1',1,'predictProperties::Threads()']]]
 ];

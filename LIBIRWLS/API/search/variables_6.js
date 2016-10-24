@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['maxdim',['maxdim',['../dc/d1b/structmodel.html#ac6ba8c1bc138143114cd331583f41387',1,'model::maxdim()'],['../d0/d6e/structsvm__dataset.html#aec1d1ee62ef8204fe90d8c6b7a647177',1,'svm_dataset::maxdim()']]],
-  ['maxsize',['MaxSize',['../d1/d03/structproperties.html#a42219768dd35e1ab628e1785759df400',1,'properties']]]
+  ['kerneltype',['kernelType',['../d1/d03/structproperties.html#a2cb295bd30c81b5bec52b79e67106881',1,'properties::kernelType()'],['../dc/d1b/structmodel.html#aaff8ca8579bd888fcfeca1c682618be9',1,'model::kernelType()']]],
+  ['kgamma',['Kgamma',['../d1/d03/structproperties.html#aab9c0195a446f08fc782701750ddb6ac',1,'properties::Kgamma()'],['../dc/d1b/structmodel.html#ac5c18eca6ad32bc6da1f2a923965e66c',1,'model::Kgamma()']]]
 ];
