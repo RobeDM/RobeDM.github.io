@@ -238,24 +238,32 @@
                 </h5>
                 
                 <p>
-                This software needs the ATLAS algebra standard routines. You need to download ATLAS from the <a href="https://sourceforge.net/projects/math-atlas/files/">official repository</a> and install it following the instructions that are detailed in the file INSTALL.txt. If you are impatient, for a basic installation on a 64 bits computer, this is the basic outline:
-                
-                <div class="shell-wrap">
-                    <p class="shell-top-bar">/Users/robedm/</p>
-                    <ul class="shell-body">
-                        <li>tar -xvjf atlas3.10.2.tar.bz2</li>
-                        <li>cd ATLAS</li>
-                        <li>mkdir my_build_dir</li>
-                        <li>cd my_build_dir</li>
-                        <li>../configure -b 64 --prefix=/installation/directory # Tell the installation directory</li>
-                        <li>make &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# tune and compile library</li>
-                        <li>make check &nbsp;&nbsp;&nbsp;&nbsp;# perform sanity tests</li>
-                        <li>make ptcheck &nbsp;&nbsp;# checks of threaded code for multiprocessor systems</li>
-                        <li>make time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# provide performance summary as % of clock rate</li>
-                        <li>make install &nbsp;&nbsp;# copy the library in the installation directory</li>
-                    </ul>
-                </div>
+                OS X has its own accelerated algebra standard routines. The name of this library is veclib and it is composed by two files:
+                <ul>
+                <li>libBLAS.dylib</li>
+                <li>libLAPACK.dylib</li>
+                </ul>
                 </p>
+
+                <p>
+                These files are in the directory:
+                </p>
+
+                <p>
+                <b>/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/</b>
+                </p>
+
+                <p>
+                This library will look for the library in that directory. Check that both files are there. If they are in a diferent path, look for them using the command "find" and note the folder for the next step:
+
+     <div class="shell-wrap">
+         <p class="shell-top-bar">/Users/robedm/</p>
+         <ul class="shell-body">
+             <li>sudo find / -name "libBLAS.dylib"  </li>
+         </ul>
+     </div>
+                </p>
+
                 
                 <h5>
                     Compiling
