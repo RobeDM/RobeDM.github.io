@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="LIBIRWLS, parallel IRWLS algorithm for SVMs">
+        <meta name="author" content="Roberto Diaz Morales">
+                            
+        <title>Install LIBIRWLS</title>
+                          
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+                                
+        <!-- Custom CSS -->
+        <link href="css/modern-business.css" rel="stylesheet">
+                                    
+        <!-- Custom CSS -->
+        <link href="css/command.css" rel="stylesheet">
+                                        
+                                        
+        <!-- Custom Fonts -->
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+                                            
+        <!-- USED FOR LATEX CODE INSIDE THE HTML -->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+                     extensions: ["tex2jax.js"],
+                     jax: ["input/TeX","output/HTML-CSS"],
+                     tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+                                                                   });
+        </script>
+        <script type="text/javascript" src="MathJax/MathJax.js"></script>
+                                            
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+                                            
+    </head>
+
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">LIBIRWLS</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Install<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="install.html">Build the library</a>
+                        </li>
+                        <li>
+                            <a href="installpython.html">Python Extension</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Algorithms <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="PIRWLS.html">IRWLS to train a SVM</a>
+                        </li>
+                        <li>
+                            <a href="PSIRWLS.html">IRWLS to train a semiparametric SVM</a>
+                        </li>
+                        <li>
+                            <a href="parallelization.html">Parallelization</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Examples<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="examplesFiles.html">Command Line guide and Examples</a>
+                        </li>
+                        <li>
+                            <a href="examplesPython.html">Python Extension guide and Examples</a>
+                        </li>
+                        <li>
+                            <a href="examplesDemos.html">Demo folder</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="API/index.html" target="blank">API</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+                <li><a href="https://github.com/RobeDM/LIBIRWLS" target="blank"><i class="fa fa-github fa-fw fa-lg"></i></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Header Carousel -->
+
+
+    <!-- Page Content -->
+    <div class="container container-large">
+
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+
+                <hr>
+
+                <h1>
+                PYTHON EXTENSION
+                </h1>
+
+                <hr>
+
+                <h2>
+                Import the library:
+                </h2>
+
+                <p>
+                Once the library has been <a href="install.html">compiled</a> and the python extension has been <a href="installpython.html">installed</a>, you can import the library using the following command line:
+                <p></p>
+
+                <p><ul><li>import LIBIRWLS</li></ul></p>
+
+                <h2>
+                Functions:
+                </h2>
+
+                <p>
+                This library gives you 5 different functions to use the library:
+                <ul>
+                <li>LIBIRWLS.PIRWLStrain: To create a classifier using the PIRWLS algorithm.</li>
+                <li>LIBIRWLS.PSIRWLStrain: To create a classifier using the PSIRWLS algorithm.</li>
+                <li>LIBIRWLS.predict: To use a classifier on a dataset.</li>
+                <li>LIBIRWLS.save: To save a classifier in a file.</li>
+                <li>LIBIRWLS.load: To load a classifier from a file.</li>
+                </ul>
+                </p>
+
+                <p><b>
+                    <u>LIBIRWLS.PIRWLStrain:</u>
+                </b></p>
+
+                <p>It creates a classifier object using our parallel IRWLS procedure. See the <a href="PIRWLS.html">library webpage</a> for a detailed description.</p>
+
+                <p><ul><li>model = LIBIRWLS.PIRWLStrain(data, labels, gamma=1, C=1, threads=1, workingSet=500, eta=0.001, kernel=1,verbose=1)</li></ul></p>
+
+                <p>Parameters:
+                <ul>
+                <li>data: Training set, format numpy 2d array</li>
+                <li>labels: Training set labels (numpy 1d array with values +1 and -1)<li>
+                <li>kernel: kernel type:
+                   <ul>
+                   <li>0 for Linear kernel u'*v</li>
+                   <li>1 for radial basis function exp(-gamma*|u-v|^2)</li>
+                   </ul>
+                </li>
+                <li>gamma: gamma in the radial basis kernel function</li>
+                <li>C: SVM Cost</li>
+                <li>workingSet: Size of the Least Squares Problem in every iteration</li>
+                <li>threads: It is the number of parallel threads (<a href="parallelization.html">info</a>)</li>
+                <li>eta: IRWLS stop criteria</li>
+                <li>verbose (default 1)::
+                   <ul>
+                   <li>0 Silent mode</li>
+                   <li>1 Print screen information about the training procedure</li>
+                   </ul>
+                </li>
+                </ul>
+                </p>
+
+
+                <p><b>
+                    <u>LIBIRWLS.PSIRWLStrain:</u>
+                </b></p>
+
+                <p>It creates a classifier object using our parallel approxiamte IRWLS procedure. See the <a href="PSIRWLS.html">library webpage</a> for a detailed description.</p>
+
+                <p><ul><li>model = LIBIRWLS.PSIRWLStrain(data, labels, gamma=1, C=1, threads=1, size=500, algorithm=0.001, kernel=1, verbose=1)</li></ul></p>
+
+                <p>Parameters:
+                <ul>
+                <li>data: Training set, format numpy 2d array</li>
+                <li>labels: Training set labels (numpy 1d array with values +1 and -1)<li>
+                <li>kernel: kernel type:
+                   <ul>
+                   <li>0 for Linear kernel u'*v</li>
+                   <li>1 for radial basis function exp(-gamma*|u-v|^2)</li>
+                   </ul>
+                </li>
+                <li>gamma: gamma in the radial basis kernel function</li>
+                <li>C: SVM Cost</li>
+                <li>algorithm (default 1): The procedure to obtain the basis elements (see <a href="PSIRWLS.html">PSIRWLS</a>)
+                   <ul>
+                   <li>0 Random Selectione</li>
+                   <li>1 SGMA (Sparse Greedy Matrix Approximation)</li>
+                   </ul>
+                </li>
+                <li>size: The size of the classifier (numbero of kernel evaluations, see <a href="PSIRWLS.html">PSIRWLS</a>)</li>
+                <li>threads: It is the number of parallel threads (<a href="parallelization.html">info</a>)</li>
+                <li>verbose (default 1):
+                   <ul>
+                   <li>0 Silent mode</li>
+                   <li>1 Print screen information about the training procedure</li>
+                   </ul>
+                </li>
+                </ul>
+                </p>
+
+                <p><b>
+                    <u>LIBIRWLS.predict:</u>
+                </b></p>
+
+                <p>To uses a classifier object to classify a new dataset.</p>
+
+                <p><ul><li>predictions = LIBIRWLS.predict(model, data, labels=None, Threads=1, Soft=0,verbose=1)</li></ul></p>
+
+                <p>Parameters:
+                <ul>
+                <li>model: A classifier obtained using the PIRWLStrain or PSIRWLStrain functions.</li>
+                <li>data: The dataset to classify (numpy 2d array format)</li>
+                <li>labels: Dataset labels (optinal parameter, if provided the function will show the accuracy of the classifier, numpy 1d array format with values +1 and -1)</li>
+                <li>Threads: It is the number of parallel threads (<a href="parallelization.html">info</a>)</li>
+                <li>Soft (default 0):
+                   <ul>
+                   <li>0 The classifier returns the class prediction (see <a href="examplesFiles.html#output">outputs</a>)</li>
+                   <li>1 The classifier returns the output of the classification function (see <a href="examplesFiles.html#output">outputs</a>)</li>
+                   </ul>
+                </li>
+                <li>verose (default 1):
+                   <ul>
+                   <li>0 Silent mode</li>
+                   <li>1 Print screen information about the training procedure</li>
+                   </ul>
+                </li>
+                </ul>
+                </p>
+
+                <p><b>
+                    <u>LIBIRWLS.save:</u>
+                </b></p>
+
+                <p>To save a classifier in a file</p>
+ 
+                <p><ul><li>LIBIRWLS.save(model, file)</li></ul></p>
+
+                <p>Parameters:
+                <ul>
+                <li>model: A classifier obtained using the PIRWLStrain or PSIRWLStrain functions.</li>
+                <li>file: The file where the model will be saved</li>
+                </ul>
+                </p>
+
+
+                <p><b>
+                    <u>LIBIRWLS.load:</u>
+                </b></p>
+
+                <p>To load a classifier from a file</p>
+ 
+                <p><ul><li>model = LIBIRWLS.load(file)</li></ul></p>
+
+                <p>Parameters:
+                <ul>
+                <li>file: The file where a classifier was saved</li>
+                </ul>
+                </p>
+
+
+                <h2>Example</h2>
+
+                <p><b>
+                    <u>Download datasets:</u>
+                </b></p>
+
+                <p>To test this tool, you must have a dataset in the correct format, the following python command lines will download the adult dataset from the libsvm repository (training dataset file = a9a, test dataset file = a9a.t)</p>
+
+                <p>import urllib<br>
+                urllib.urlretrieve ("https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/a9a", "a9a")<br>
+                urllib.urlretrieve ("https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/a9a.t","a9a.t")
+                </p>
+
+                <p><b>
+                    <u>Creating the numpy matrices and vectors:</u>
+                </b></p>
+
+                <p>These dataset have libsvm format, you can load and transform them into numpy matrices using the following command lines</p>
+
+                <p>from sklearn.datasets import load_svmlight_file<br>
+                import numpy as np<br>
+                Xtr,Ytr = load_svmlight_file("a9a")<br>
+                Xtst,Ytst = load_svmlight_file("a9a.t")<br>
+                Xtr=Xtr.todense()<br>
+                Xtst=Xtst.todense()
+                </p>
+
+                <p><b>
+                    <u>Training a classifier:</u>
+                </b></p>
+                
+                <p>If you want to create a classifier using the PIRWLS algorithm (LIBIRWLS.PIRWLStrain command) using the training dataset (Xtr a 2d numpy matrix with the variables and Ytr a 1d array with the classes), with gamma = 0.001, C = 1000 and one single thread you must use:</p>
+
+                <p>model = LIBIRWLS.PIRWLStrain(Xtr, Ytr, gamma=0.001, C=1000, threads=1)</p>
+
+                <p><b>
+                    <u>Testing the classifier:</u>
+                </b></p>
+                
+                <p>If you want to use the classifier to classify a new dataset (e.g. the matrix Xtst) and obtain the hard classification (Soft=0, see <a href="examplesFiles.html#output">outputs</a>) :</p>
+
+                <p>predictions = LIBIRWLS.predict(model, Xtst, Soft=0, threads=2)</p>
+
+                <p>You can them compare the predictions with the true labels (Ytst array) to evaluate the accuracy of this classifier</p>
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; 2014-2017</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

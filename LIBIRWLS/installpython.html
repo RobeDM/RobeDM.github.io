@@ -9,13 +9,17 @@
     <meta name="description" content="LIBIRWLS, parallel IRWLS algorithm for SVMs">
     <meta name="author" content="Roberto Diaz Morales">
 
-    <title>LIBIRWLS</title>
+    <title>Install LIBIRWLS</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/command.css" rel="stylesheet">
+
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -117,65 +121,92 @@
                 <hr>
 
                 <h1>
-                    LIBIRWLS
+                    INSTALLING THE PYTHON EXTENSION
                 </h1>
-                <h3>
-                    A parallel IRWLS procedure to train full and semiparametric SVMs.
-                </h3>
                 
                 <hr>
+                
+                <p>
+                The python extension is only available for unix like systems (linux, osX,...).
+                </p>
 
-<p>
-LIBIRWLS is an integrated library that makes use of a parallel implementation of the Iterative Re-Weighted Least Squares (IRWLS) procedure for solving the quadratic programmig (QP) problem that arises during the training of Support Vector Machines (SVMs). It implements the functions to run two different algorithms:
+                <h2>
+                    <u>Prerequisites</u>
+                </h2>
 
-<ul>
-    <li> Parallel Iterative Re-Weighted Least Squares: A Parallel SVM solver based on the IRWLS algorithm.</li>
-    <li>Parallel Semi-parametric Iterative Re-Weighted Least Squares: A Parallel Semiparametric SVMs solver based on the IRWLS algorithm.</li>
-</ul>
-</p>
+                <p>
+                You must previously build and install the library (<a href="install.html">instructions</a>).
+                </p>
 
-<p>
-SVMs have two main limitations. The first problem is related to their non-parametric nature. The complexity of the classifier is not limited and depends on the number of Support Vectors (SVs) after training. If the number of SVs is very large we may obtain a very slow classifier when processing new samples. The second problem is the run time associated to the training procedure that may be excessive for large datasets.
-</p>
+                <p>
+                To install this module you must have the libraries numpy and Cython installed in python.
+                </p>
 
-<p>
-To face these problems, we can make use of parallel computing, thus reducing the run time of the training procedure or we can use semi-parametric approximations than can limit the complexity of the model in advance, which directly implies a faster classifier.
-</p>
+                <p>
+                <ul>
+                <li><a href="http://cython.org/">Cython</a></li>
+                <li><a href="http://www.numpy.org/">Numpy</a></li>
+                </ul>
+                </p>
 
-<p>
-The above situation motivated us to develop "LIBIRWLS", an integrated library based on a parallel implementation of the IRWLS procedure to solve non-linear SVMs and semi-parametric SVMs. This library is implemented in C, supports a wide range of platforms and also provides detailed information about its programming interface and dependencies.
-</p>
+                <p>
+                You can install very easily both libraries using the command <a href="https://pip.pypa.io/en/stable/">pip</a>.
+                </p>
 
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-1">
-            </div>
-            <div class="col-md-5">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-bullhorn"></i> Citing</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>If this software was useful for you, please cite our paper: "LIBIRWLS: A parallel IRWLS library for SVMs and
-                        semiparametric SVMs", submitted to Knowledge-Based Systems</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i> Free &amp; Open Source</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>This software is publicly available at Github as an Open Source Software with MIT license</p>
-                        <a href="https://github.com/RobeDM/LIBIRWLS" class="btn btn-default">Github</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /.row -->
+
+                <h2>
+                    <u>Install</u>
+                </h2>
+              
+                <p><b>
+                    <u>Windows</u>
+                </b></p>
+
+
+                <p>Currently this python extension is not available for Windows operating systems.</p>
+
+
+                <p><b>
+                    <u>Linux</u>
+                </b></p>
+
+
+                <p> If you have manually installed ATLAS (instead of using the apt-get command), you must tell the installation directory by defining the environment variable ATLASDIR:</p>
+
+                <p><ul><li>export ATLASDIR=/path/to/atlas/</li></ul></p>
+
+                <p>After that, you can easily install this python module (If you need sudo permission you have to use the parameter -E to keep the environment variable):</p>
+
+                <p><ul><li>sudo -E python setup.py install</li></ul></p>
+
+
+                <p><b>
+                    <u>OSX</u>
+                </b></p>
+
+                <p>You must define some enviroment variables:</p>
+
+                <p>CC to tell the compiler (you must use the same compiler that you used to build the library). For example, if you used gcc 6 installed with homebrew:</p>
+
+                <p><ul><li>export CC=/usr/local/Cellar/gcc/6.2.0/bin/gcc-6</li></ul></p>
+                
+                <p>If veclib is not in the default directory (it is highly unlikely) you must define the environment variable VECLIBDIR telling where veclib is:</p>
+
+                <p><ul><li>export VECLIBDIR=/path/to/veclib</li></ul></p>
+
+                <p>Your compiler has the openmp functions in the libgomp library, you must define an enviroment variable called LIBGOMP_PATH telling where is the file libgomp.a in the lib directory of your compiler. In the case of gcc 6 installed with homebrew:</p>
+
+                <p><ul><li>export LIBGOMP_PATH=/usr/local/Cellar/gcc/6.2.0/lib/gcc/6/libgomp.a</li></ul></p>
+
+                <p>To avoid that Cython could use any posible flag only available for clang it is better to set the CFLAGS environment variable to an empty value:</p>
+
+                <p><ul><li>export CFLAGS=</li></ul></p>
+
+
+                <p>With these environment variables well defined you can install the extension (If you need sudo permission you have to use the parameter -E to keep the environment variables):</p>
+
+                <p><ul><li>sudo -E python setupOSX.py install</li></ul></p>
+
 
         <hr>
 
@@ -197,12 +228,6 @@ The above situation motivated us to develop "LIBIRWLS", an integrated library ba
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-    <!-- Script to Activate the Carousel -->
-    <script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-    </script>
 
 </body>
 

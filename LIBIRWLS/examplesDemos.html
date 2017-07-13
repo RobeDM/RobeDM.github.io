@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="LIBIRWLS, parallel IRWLS algorithm for SVMs">
-    <meta name="author" content="Roberto Diaz Morales">
-
-    <title>LIBIRWLS</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/modern-business.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="LIBIRWLS, parallel IRWLS algorithm for SVMs">
+        <meta name="author" content="Roberto Diaz Morales">
+                            
+        <title>Install LIBIRWLS</title>
+                          
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+                                
+        <!-- Custom CSS -->
+        <link href="css/modern-business.css" rel="stylesheet">
+                                    
+        <!-- Custom CSS -->
+        <link href="css/command.css" rel="stylesheet">
+                                        
+                                        
+        <!-- Custom Fonts -->
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+                                            
+        <!-- USED FOR LATEX CODE INSIDE THE HTML -->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+                     extensions: ["tex2jax.js"],
+                     jax: ["input/TeX","output/HTML-CSS"],
+                     tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+                                                                   });
+        </script>
+        <script type="text/javascript" src="MathJax/MathJax.js"></script>
+                                            
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <![endif]-->
+                                            
+    </head>
 
-</head>
 
 <body>
 
@@ -113,69 +126,44 @@
             <div class="col-md-1">
             </div>
             <div class="col-md-10">
-                
+
                 <hr>
 
                 <h1>
-                    LIBIRWLS
+                DEMOS
                 </h1>
-                <h3>
-                    A parallel IRWLS procedure to train full and semiparametric SVMs.
-                </h3>
-                
-                <hr>
-
-<p>
-LIBIRWLS is an integrated library that makes use of a parallel implementation of the Iterative Re-Weighted Least Squares (IRWLS) procedure for solving the quadratic programmig (QP) problem that arises during the training of Support Vector Machines (SVMs). It implements the functions to run two different algorithms:
-
-<ul>
-    <li> Parallel Iterative Re-Weighted Least Squares: A Parallel SVM solver based on the IRWLS algorithm.</li>
-    <li>Parallel Semi-parametric Iterative Re-Weighted Least Squares: A Parallel Semiparametric SVMs solver based on the IRWLS algorithm.</li>
-</ul>
-</p>
-
-<p>
-SVMs have two main limitations. The first problem is related to their non-parametric nature. The complexity of the classifier is not limited and depends on the number of Support Vectors (SVs) after training. If the number of SVs is very large we may obtain a very slow classifier when processing new samples. The second problem is the run time associated to the training procedure that may be excessive for large datasets.
-</p>
-
-<p>
-To face these problems, we can make use of parallel computing, thus reducing the run time of the training procedure or we can use semi-parametric approximations than can limit the complexity of the model in advance, which directly implies a faster classifier.
-</p>
-
-<p>
-The above situation motivated us to develop "LIBIRWLS", an integrated library based on a parallel implementation of the IRWLS procedure to solve non-linear SVMs and semi-parametric SVMs. This library is implemented in C, supports a wide range of platforms and also provides detailed information about its programming interface and dependencies.
-</p>
 
                 <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-1">
-            </div>
-            <div class="col-md-5">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-bullhorn"></i> Citing</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>If this software was useful for you, please cite our paper: "LIBIRWLS: A parallel IRWLS library for SVMs and
-                        semiparametric SVMs", submitted to Knowledge-Based Systems</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i> Free &amp; Open Source</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>This software is publicly available at Github as an Open Source Software with MIT license</p>
-                        <a href="https://github.com/RobeDM/LIBIRWLS" class="btn btn-default">Github</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /.row -->
+
+                <p>Under the folder "demo" you will find different scripts to run the library.</p>
+
+
+                <h3>Demo List:</h3>
+
+                <p>
+                Every script is oriented to one operating system or technology:
+                <ul>
+                  <li>demoIRWLS.sh: To be executed on unix like systems (linux, OSX, ...)</li>
+                  <li>demoIRWLSWin32.bat: For 32-bit Windows operating system.</li>
+                  <li>demoIRWLSWin64.bat: For 64-bit Windows operating system.</li>
+                  <li>demoPythonModule.py: A python script to run once the python extension has been installed.</li>
+                </ul>
+                </p>
+
+
+                <h3>Demo Structure:</h3>
+
+                <p>
+                Every script follows the same procedure:
+                <ul>
+                  <li>The script will download the Adult dataset from the <a href="https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/">libsvm repository</a>, and will save it under the folder "data". The file "a9a" contains the training set and the file "a9a.t" contains the test set.</li>
+                  <li>The script will run the algorithm PIRWLS twice (using 1 and 2 threads respectively) and it will show the run time.</li>
+                  <li>The script will test the classifier on the test set.</li>
+                  <li>The script will run the algorithm PSIRWLS twice (using 1 and 2 threads respectively) and it will show the run time.</li>
+                  <li>The script will test the classifier on the test set.</li>
+
+                </ul>
+                </p>
 
         <hr>
 
@@ -197,12 +185,6 @@ The above situation motivated us to develop "LIBIRWLS", an integrated library ba
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-    <!-- Script to Activate the Carousel -->
-    <script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-    </script>
 
 </body>
 
