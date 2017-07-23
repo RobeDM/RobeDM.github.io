@@ -78,7 +78,7 @@
                             <a href="PIRWLS.html">IRWLS to train a SVM</a>
                         </li>
                         <li>
-                            <a href="PSIRWLS.html">IRWLS to train a budgeted SVM</a>
+                            <a href="PSIRWLS.html">IRWLS to train a semiparametric SVM</a>
                         </li>
                         <li>
                             <a href="parallelization.html">Parallelization</a>

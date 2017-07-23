@@ -115,6 +115,7 @@
 </nav>
 
 
+
         <!-- Header Carousel -->
         
         
@@ -130,86 +131,114 @@
                     <hr>
                     
                     <h1>
-                        PIRWLS
+                        PSIRWLS
                     </h1>
                     
                     <hr>
                     
+                    <h3>
+                        Budgeted Support Vector Machines
+                    </h3>
+                    
+                    <p>
+                    The solution of the SVM (see PIRWLS section) is non-parametric, the size of the classification function (that is the number of Support Vectors) is not predetermined and is modeled based on the training samples. To keep the complexity under control budgeted models can be adopted. A set of m basis elements $\{\mathbf{c}_1,...,\mathbf{c}_m\}$ can be selected and $\mathbf{w}$ (see PIRWLS section) is approximated by $\mathbf{w}\simeq \sum_{j=1}^m\beta_j\phi(\mathbf{c}_j)$, giving rise to a classifier of size $m$:
+                    </p>
+                    
+                    <p align="center">
+                    $f(\mathbf{x_i})=\sum_{j=1}^m\beta_j K(\mathbf{x}_i,\mathbf{c}_j)$
+                    </p>
+
+                    <p>
+                    Finally, the weights $\boldsymbol{\beta}$ are obtained solving the following minimization problem:
+                    </p>
+
+                    <p align="center">
+                    $\min_{\boldsymbol{\beta}} \frac{1}{2}\mathbf{\boldsymbol{\beta}^T\mathbf{K}_c\boldsymbol{\beta}}+C\sum_{i=1}^n{\xi_i}$<br>
+                    $(\mathbf{K_c})_{i,j} = K(\mathbf{c}_i,\mathbf{c}_j), i,j=1,...,m$<br>
+                    $y_i(\boldsymbol{\beta}^T\mathbf{k}_i+b)\ge 1-\xi_i, i=1,2,...,n$<br>
+                    $\xi_i \ge 0,i=1,2,...,n$<br>
+                    $(\mathbf{k}_i)_j=K(\mathbf{x}_i,\mathbf{c}_j)$
+                    </p>
+
+                    <h3>
+                        IRWLS to train a budgeted SVM:
+                    </h3>
+                    
+                    <p>An IRWLS schema has been successfully used to train budgeted SVMs by rearranging the cost function <a href="http://www.sciencedirect.com/science/article/pii/S0031320302003515">(Parrado, 2003)</a>:</p>
+ 
+                    <p align="center">
+                    $\min_{\boldsymbol{\beta}}\frac{1}{2}\mathbf{\boldsymbol{\beta}^T\mathbf{K}_c\boldsymbol{\beta}}+\sum_{i}a_{i}e_i^2$<br>
+                    $e_i=y_i-\left(\sum_{j=0}^m\beta_jK(\mathbf{x}_i,\mathbf{c}_j)+b\right)$<br>
+                    $a_i=\begin{cases}0,y_ie_i \le 0\\\frac{C}{e_iy_i},y_ie_i \ge 0\end{cases}$
+                    </p>
+                    
+                    <p>The procedure works in a similarly way to the full SVM, $a_i$ is not a function of $\boldsymbol{\beta}$ and the algorithm works iteratively following a process of obtaining $\boldsymbol{\beta}$ and recalculating $a_i$ using these weights.</p>
+                    
+                    <p>
+                    To parallelize this software, a shared memory parallelization has been performed as described in <a href="http://www.sciencedirect.com/science/article/pii/S0925231216000837">(Díaz Morales, 2016a)</a><a href="http://www.sciencedirect.com/science/article/pii/S0167865516302173">(Díaz Morales, 2016b)</a>.
+                    </p>
+
+                    <h3>
+                        Basis elements selection
+                    </h3>
+                    
+                    This algorithm contains two different methods to select the basis elements of the budgeted model:
+
                     <h4>
-                        Support Vector Machines
+                        Random Selection
                     </h4>
+ 
                     <p>
-                    Suppose a binary classification problem with a data set $\mathcal{D}$ that contains $n$ training examples in a $p$-dimensional space of the form:
+                    A simple random selection of training set elements.
                     </p>
-                    <p align="center">
-                    $\mathcal{D}=\{(\mathbf{x}_i,y_i)|\mathbf{x}_i \in \mathbb{R}^p,y_i \in \{-1,1\}\}_{i=1}^{n}$
-                    </p>
-                    
-                    <p>where $y_i$ indicates the class of the training sample $\mathbf{x}_i$.</p>
-                    
-                    <p>The primal optimization problem to solve a SVM when we use soft margin classification to allow samples inside the classification margin and using a kernel functions is <a href="http://link.springer.com/article/10.1007/bf00994018">(Cortes, 1995)</a>:</p>
-                    
-                    <p align="center">
-                    $\min_{\mathbf{w},b} \frac{1}{2}\Vert\mathbf{w}\Vert^2+C\sum_{i=1}^n{\xi_i}$<br>
-                    $y_i(\sum_{j=1}^n\alpha_jy_jK(\mathbf{x}_j\mathbf{x}_i)+b)\ge 1-\xi_i,\forall i=1,2,...,n$<br>
-                    $\xi_i \ge 0,\forall i=1,2,...,n$<br>
-                    $\mathbf{w}=\sum_{i=1}^{n}y_i\alpha_i\phi(\mathbf{x}_i)$
-                    </p>
-                    
-                    <p>
-                    where $C$ is a penalty parameter to tradeoff the misclassification error, $\phi(\cdot)$ is a nonlinear transformation (usually unknown) where inner products can be computed using a kernel function $\phi(\mathbf{x}_i)\phi(\mathbf{x}_j)=K(\mathbf{x}_i,\mathbf{x}_j)$ and $\alpha_i$ is the Lagrange multiplier associated to the constraint of the sample $\mathbf{x}_i$.</p>
-                    <p>
-                    If the kernel is a radial basis function, also called Gaussian kernel $K(\mathbf{x}_i,\mathbf{x}_j)=exp(-\gamma\Vert \mathbf{x}_i - \mathbf{x}_j \Vert^2)$, the corresponding feature space is a Hilbert space of infinite dimensions.
-                    </p>
-                    
-                    <p>
-                    This optimization problem is equivalent to solving an $n$-dimensional convex Quadratic Programming (QP) problem.
-                    </p>
-                    
-                    <p>
-                    The solution is non-parametric, the size of the classification function (that is the number of Support Vectors) is not predetermined and is modeled based on the training samples. To keep the complexity under control a semi-parametric models can be adopted (see algorithm PSIRWLS).
-                    </p>
-                    
                     <h4>
-                        IRWLS to train a SVM
+                        Sparse Greedy Matrix Aproximaton
                     </h4>
-
+                    
                     <p>
-                    The cost function of the SVM can be rearranged in the form of a Weighted Least Squares problem <a href="http://papers.nips.cc/paper/1855-fast-training-of-support-vector-classifiers.pdf">(Perez Cruz, 2001)</a>. That matricial formulation, with a complexity that can be kept under control, can be efficiently parallelized as shown in <a href="http://www.sciencedirect.com/science/article/pii/S0167865516302173">(Díaz Morales, 2016b)</a>.
-                    </p>                    
-
+                    SGMA <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.43.3153&rep=rep1&type=pdf">(Smola, 2000)</a> is a very common greedy technique to select the basis elements of the budgeted model. It has been used very successfully in kernel methods.
+                    </p>
+                    
+                    <p>It works by iteratively growing up the set with the element that maximizes a criteria.</p>
+                    
+                    <p>Having a data set $\{\mathbf{x}_1$,...,$\mathbf{x}_n\}$ and a set of basis elements $\{\mathbf{c}_1$,...,$\mathbf{c}_m\}$ we can approximate the kernel functions as a linear combination of other kernels:</p>
+                    
+                    <p align="center">
+                    $k(\mathbf{x}_i,.)=\sum_{j=1}^m\alpha_{i,j}k(\mathbf{c}_j,.)$
+                    </p>
+                    
                     <p>
-                    IRWLS rearranges the cost function to be independent of $\xi_i$ <a href="http://papers.nips.cc/paper/1855-fast-training-of-support-vector-classifiers.pdf">(Perez Cruz, 2001)</a>:
+                    The approximation error of this linear combination is:
                     </p>
                     
                     <p align="center">
-                    $\min_{\boldsymbol{\beta},b}  \frac{1}{2}\Vert\mathbf{w}\Vert^2+\sum_{i}a_{i}e_i^2$<br>
-                    $e_i=y_i-\left(\sum_{j=1}^n\alpha_jy_jK(\mathbf{x}_i,\mathbf{x}_j)+b\right)$<br>
-                    $a_i=\begin{cases}0,y_ie_i \le 0\\\frac{C}{e_iy_i},y_ie_i \ge 0\label{vara}\end{cases}$
+                    $Err(\alpha^{n,m})=tr\mathbf{K}-\sum_{i=1}^n\sum_{j=1}^m\alpha_{i,j}k(\mathbf{x}_i,\mathbf{c}_j)$<br>
+                    $(\mathbf{K})_{i,j}=K(\mathbf{x}_i,\mathbf{x}_j), \forall i,j = 1,...,n$
                     </p>
                     
                     <p>
-                    The weights are then obtained by minimizing the equation considering that $a_i$ does not depend on $\mathbf{w}$, then recalculating $a_i$ using the new $\mathbf{w}$ and repeating the procedure until convergence.
+                    And the approximation error of adding a new element $\mathbf{c}_{m+1}$ to the set of basis can be expresssed as a function of the previous error:
+                    </p>
+                    
+                    <p align="center">
+                    $Err(\alpha^{n,m+1})=Err(\alpha^{n,m})-\underbrace{\eta^{-1}\Vert\mathbf{K}_{nm}\mathbf{z}-\mathbf{k}_{m+1,n}\Vert^2}_{Error Decrease}$
                     </p>
                     
                     <p>
-                    In every iteration, the size of the quadratic problem to solve is equal to the number of elements in the training set. This is not affordable in most of the cases because it is necessary to store in memory a matrix that contains the kernel function of every pair of training samples in order to solve the linear system that obtains in every iteration the weights $\mathbf{w}$. To make this procedure practical two solution were proposed
+                    Where:
                     </p>
                     
-                    <ul>
-                        <li>Training samples differentiation: The linear system does not need to work with the full training set, just with a reduced set that contains the unbounded Support Vectors. It works dividing the training samples into three sets. $\mathcal{S}_1$ contains the unbounded SVs, $\mathcal{S}_2$ contains samples whose $\alpha_i=0$ and $\mathcal{S}_3$ contains bounded SVs. This method, although reduces the complexity of the training procedure, is not enough when the number of unbounded Support Vectors is very high.</li>
-                        
-                        <li>Using a working set: In order to be used inside a chunking scheme, it is possible to use a division of the training elements into two different groups is proposed. The samples are divided every iteration into a working set $\mathcal{S}_W$ that is fixed in size, whose elements have the weights that are going to be updated in an iteration, and an inactive set $S_{IN}$, which contains the elements whose weights remain constant. The size of the quadratic problem is the working set size, allowing us to keep the complexity under control.</li>
-                    </ul>
-                    
-                    <p>
-                    This software makes use of both methods to solve a full SVM, training samples differentiation and it has an outer loop that selects a working set in every iteration and an inner loop that updates the weights of the working set using the IRWLS procedure.
+                    <p align="center">
+                    $(\mathbf{k}_{m+1,n})_i=k(\mathbf{c}_{m+1},\mathbf{x}_{i}) \forall i=1,...,n$<br>
+                    $(\mathbf{k}_{nc})_i=k(\mathbf{x}_i,\mathbf{c}_{m+1}) \forall i=1,...,m$<br>
+                    $(\mathbf{k}_{mc})_i=k(\mathbf{c}_i,\mathbf{c}_{m+1}) \forall i=1,...,m$<br>
+                    $\mathbf{z}=\mathbf{K_c}^{-1}\mathbf{k}_{mc}$<br>
+                    $\eta=1-\mathbf{z}^T\mathbf{k}_{nc}$<br>
+                    $(\mathbf{K}_{nm})_{ij}=k(\mathbf{x}_i,\mathbf{c}_j) \forall i=1,...,n, j=1,...,m$
                     </p>
+                    
+                    <p>SGMA aims at looking for the best elements to be used in the semi-parametric model. It has to identify the elements of the training set whose porjections most accurately represent the projected Support Vectors. To do that, in every iteration selects a group of new candidates and grow the set of basis elements with the element with higher Error Decrease (ED).</p>
 
-
-                    <p>
-                    To parallelize this software, a shared memory parallelization has been performed as described in <a href="http://www.sciencedirect.com/science/article/pii/S0167865516302173">(Díaz Morales, 2016b)</a>.
-                    </p>
                     <hr>
                 </div>
             </div>
