@@ -172,7 +172,7 @@
                     $a_i=\begin{cases}0,y_ie_i \le 0\\\frac{C}{e_iy_i},y_ie_i \ge 0\end{cases}$
                     </p>
                     
-                    <p>The procedure works in a similarly way to the full SVM, $a_i$ is not a function of $\boldsymbol{\beta}$ and the algorithm works iteratively following a process of obtaining $\boldsymbol{\beta}$ and recalculating $a_i$ using these weights.</p>
+                    <p>The procedure works in a similar way to the full SVM, $a_i$ is not a function of $\boldsymbol{\beta}$ and the algorithm works iteratively following a process of obtaining $\boldsymbol{\beta}$ and recalculating $a_i$ using these weights.</p>
                     
                     <p>
                     To parallelize this software, a shared memory parallelization has been performed as described in <a href="http://www.sciencedirect.com/science/article/pii/S0925231216000837">(Díaz Morales, 2016a)</a><a href="http://www.sciencedirect.com/science/article/pii/S0167865516302173">(Díaz Morales, 2016b)</a>.
@@ -196,10 +196,10 @@
                     </h4>
                     
                     <p>
-                    SGMA <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.43.3153&rep=rep1&type=pdf">(Smola, 2000)</a> is a very common greedy technique to select the basis elements of the budgeted model. It has been used very successfully in kernel methods.
+                    SGMA <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.43.3153&rep=rep1&type=pdf">(Smola, 2000)</a> is a very common greedy technique to approximate a kernel matrix using outer products of a reduced number of vectors, and hence can be used to select the basis elements of the budgeted model. It has been used very successfully in many budgeted SVM implementations <a href="http://www.sciencedirect.com/science/article/pii/S0925231216000837">(Díaz Morales, 2016a)</a><a href="http://www.sciencedirect.com/science/article/pii/S0167865516302173">(Díaz Morales, 2016b)</a>.
                     </p>
                     
-                    <p>It works by iteratively growing up the set with the element that maximizes a criteria.</p>
+                    <p>It works by iteratively (greedy) adding to the selected set the element that maximizes a given criteria, as explained below.</p>
                     
                     <p>Having a data set $\{\mathbf{x}_1$,...,$\mathbf{x}_n\}$ and a set of basis elements $\{\mathbf{c}_1$,...,$\mathbf{c}_m\}$ we can approximate the kernel functions as a linear combination of other kernels:</p>
                     
@@ -237,7 +237,7 @@
                     $(\mathbf{K}_{nm})_{ij}=k(\mathbf{x}_i,\mathbf{c}_j) \forall i=1,...,n, j=1,...,m$
                     </p>
                     
-                    <p>SGMA aims at looking for the best elements to be used in the budgeted model. It has to identify the elements of the training set whose porjections most accurately represent the projected Support Vectors. To do that, in every iteration selects a group of new candidates and grow the set of basis elements with the element with higher Error Decrease (ED).</p>
+                    <p>SGMA aims at looking for the best elements to be used in the budgeted model. It has to identify the elements of the training set whose projections most accurately represent the projected Support Vectors. To do that, in every iteration it selects a group of new candidates and grows the set of basis elements with the element with higher Error Decrease (ED).</p>
 
                     <hr>
                 </div>
