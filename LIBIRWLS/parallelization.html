@@ -154,11 +154,11 @@
                         Map Reduce design pattern
                     </h4>
                     
-                    <p>A design pattern called Map Reduce (do not confuse the design pattern with the associated implementation) for processing large datasets on clusters. This structure has been shown to be very useful for many tasks in the machine learning area. A Map Reduce algorithm is composed of a Map() procedure that operates on a portion of the input data and a Reduce() function that performs a summary operation.</p>
+                    <p>A design pattern called Map Reduce (do not confuse the design pattern with the associated implementation for processing large datasets on clusters) has been widely used. This structure has been shown to be very useful for many tasks in the machine learning area. A Map Reduce algorithm is composed of a Map() procedure that operates on a portion of the input data and a Reduce() function that performs a summary operation.</p>
                     
                     <p>In SGMA, the selection of the best basis element has been implemented using a map function to evaluate the error decrease and a reduce function that finds the candidate that has obtained the highest value.</p>
                     
-                    <p>In the IRWLS procedure, the steps to update the errors or the variables have been implemented using this design pattern because the operations are independent among the different input elements.</p>
+                    <p>In the IRWLS procedure, the steps to update the errors or the variables have also been implemented using this design pattern because the operations are independent among the different input elements.</p>
                     
                     
                     <h4>Matrix operations</h4>
@@ -243,11 +243,11 @@
                     $\mathbf{D}=\mathbf{L_3}\mathbf{L_3^*}+\mathbf{L_4}\mathbf{L_4^*}\Rightarrow \mathbf{L_4} = Chol(\mathbf{D}-\mathbf{L_3}\mathbf{L_3}^*)$
                     </p>
 
-                    <p>Our implementation to perform the Cholesky decomposition in parallel consists on a recursive implementation dividing the matrix submatrices and solving the matrix operations in parallel. Once the factorization has been done, the backsubstitution procedure solves the linear system taking little time if we make a comparison with the decomposition.</p>
+                    <p>Our implementation to perform the Cholesky decomposition in parallel consists on a recursive implementation dividing the matrix submatrices and solving the matrix operations in parallel. Once the factorization has been done, the backsubstitution procedure solves the linear system in much less time than the decomposition itself.</p>
 
                     <h4>Overall process</h4>
 
-                    <p>Both algorithms, a parallel IRWLS (called PIRWLS) and a parallel semi-parametric IRWLS (called PSIRWLS) to solve SVMs have been implemented using the algorithms and considerations analyzed in previous sections. The few portions of non-parallel code take negligible run time, meaning that these models are a good schema to make SVMs practical in an increasing number of scenarios.</p>
+                    <p>The algorithms of this library (to solve full and budgeted SVMs) have been implemented using the procedures and considerations analyzed this section. The few portions of non-parallel code take negligible run time, meaning that these models are a good schema to make SVMs practical in an increasing number of scenarios.</p>
                     
                     
                     <hr>
