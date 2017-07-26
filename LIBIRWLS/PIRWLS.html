@@ -130,7 +130,7 @@
                     <hr>
                     
                     <h1>
-                        PIRWLS
+                        FULL SOLUTION
                     </h1>
                     
                     <hr>
@@ -167,7 +167,7 @@
                     </p>
                     
                     <p>
-                    The solution is non-parametric, the size of the classification function (that is the number of Support Vectors) is not predetermined and is modeled based on the training samples. To keep the complexity under control a semi-parametric models can be adopted (see algorithm PSIRWLS).
+                    The solution is non-parametric, the size of the classification function (that is the number of Support Vectors) is not predetermined and is modeled based on the training samples. To keep the complexity under control a semi-parametric models can be adopted (<a href="PSIRWLS.html">see our Budgeted solution</a>).
                     </p>
                     
                     <h4>
@@ -193,17 +193,17 @@
                     </p>
                     
                     <p>
-                    In every iteration, the size of the quadratic problem to solve is equal to the number of elements in the training set. This is not affordable in most of the cases because it is necessary to store in memory a matrix that contains the kernel function of every pair of training samples in order to solve the linear system that obtains in every iteration the weights $\mathbf{w}$. To make this procedure practical two solution were proposed
+                    In every iteration, the size of the quadratic problem to be solved is equal to the number of elements in the training set. This is not affordable in most of the cases because it is necessary to store in memory a matrix that contains the kernel function of every pair of training samples in order to solve the linear system that obtains in every iteration the weights $\mathbf{w}$. To make this procedure practical two solution have been proposed in the literature.
                     </p>
                     
                     <ul>
                         <li>Training samples differentiation: The linear system does not need to work with the full training set, just with a reduced set that contains the unbounded Support Vectors. It works dividing the training samples into three sets. $\mathcal{S}_1$ contains the unbounded SVs, $\mathcal{S}_2$ contains samples whose $\alpha_i=0$ and $\mathcal{S}_3$ contains bounded SVs. This method, although reduces the complexity of the training procedure, is not enough when the number of unbounded Support Vectors is very high.</li>
                         
-                        <li>Using a working set: In order to be used inside a chunking scheme, it is possible to use a division of the training elements into two different groups is proposed. The samples are divided every iteration into a working set $\mathcal{S}_W$ that is fixed in size, whose elements have the weights that are going to be updated in an iteration, and an inactive set $S_{IN}$, which contains the elements whose weights remain constant. The size of the quadratic problem is the working set size, allowing us to keep the complexity under control.</li>
+                        <li>Using a working set: To use this procedure inside a chunking scheme, we need to use a division of the training elements into two different groups. The samples are divided at every iteration into a working set $\mathcal{S}_W$ that is fixed in size, whose elements have the weights that are going to be updated in an iteration, and an inactive set $S_{IN}$, which contains the elements whose weights remain constant. The size of the quadratic problem is the working set size, allowing us to keep the complexity under control.</li>
                     </ul>
                     
                     <p>
-                    This software makes use of both methods to solve a full SVM, training samples differentiation and it has an outer loop that selects a working set in every iteration and an inner loop that updates the weights of the working set using the IRWLS procedure.
+                    This software makes use of both methods to solve a full SVM: we use training samples differentiation and there is an outer loop that selects a working set in every iteration and an inner loop that updates the weights of the working set using the IRWLS procedure.
                     </p>
 
 
